@@ -1,0 +1,6 @@
+
+State Machine - |bin_to_bcd_fsm|estado
+Name estado.finish estado.sub10 estado.idle 
+estado.idle 0 0 0 
+estado.sub10 0 1 1 
+estado.finish 1 0 1 

@@ -18,9 +18,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "06/03/2021 11:18:26"
+-- Generated on "06/03/2021 20:27:58"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          decoder
+-- Vhdl Test Bench(with test vectors) for design  :          bin_to_bcd_fsm
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -28,80 +28,105 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY decoder_vhd_vec_tst IS
-END decoder_vhd_vec_tst;
-ARCHITECTURE decoder_arch OF decoder_vhd_vec_tst IS
+ENTITY bin_to_bcd_fsm_vhd_vec_tst IS
+END bin_to_bcd_fsm_vhd_vec_tst;
+ARCHITECTURE bin_to_bcd_fsm_arch OF bin_to_bcd_fsm_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL binInput : STD_LOGIC_VECTOR(4 DOWNTO 0);
-SIGNAL decOut_n : STD_LOGIC_VECTOR(6 DOWNTO 0);
-SIGNAL enable : STD_LOGIC;
-COMPONENT decoder
+SIGNAL activate : STD_LOGIC;
+SIGNAL bin_input : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL clk : STD_LOGIC;
+SIGNAL digit0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL digit1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
+SIGNAL done : STD_LOGIC;
+COMPONENT bin_to_bcd_fsm
 	PORT (
-	binInput : IN STD_LOGIC_VECTOR(4 DOWNTO 0);
-	decOut_n : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-	enable : IN STD_LOGIC
+	activate : IN STD_LOGIC;
+	bin_input : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
+	clk : IN STD_LOGIC;
+	digit0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	digit1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
+	done : OUT STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
-	i1 : decoder
+	i1 : bin_to_bcd_fsm
 	PORT MAP (
 -- list connections between master ports and signals
-	binInput => binInput,
-	decOut_n => decOut_n,
-	enable => enable
+	activate => activate,
+	bin_input => bin_input,
+	clk => clk,
+	digit0 => digit0,
+	digit1 => digit1,
+	done => done
 	);
 
--- enable
-t_prcs_enable: PROCESS
+-- activate
+t_prcs_activate: PROCESS
 BEGIN
-	enable <= '0';
+	activate <= '0';
 	WAIT FOR 20000 ps;
-	enable <= '1';
-	WAIT FOR 500000 ps;
-	enable <= '0';
+	activate <= '1';
+	WAIT FOR 300000 ps;
+	activate <= '0';
 WAIT;
-END PROCESS t_prcs_enable;
--- binInput[4]
-t_prcs_binInput_4: PROCESS
+END PROCESS t_prcs_activate;
+-- bin_input[6]
+t_prcs_bin_input_6: PROCESS
 BEGIN
-	binInput(4) <= '0';
-WAIT;
-END PROCESS t_prcs_binInput_4;
--- binInput[3]
-t_prcs_binInput_3: PROCESS
-BEGIN
-	binInput(3) <= '0';
-WAIT;
-END PROCESS t_prcs_binInput_3;
--- binInput[2]
-t_prcs_binInput_2: PROCESS
-BEGIN
-	binInput(2) <= '0';
-	WAIT FOR 120000 ps;
-	binInput(2) <= '1';
-	WAIT FOR 80000 ps;
-	binInput(2) <= '0';
-WAIT;
-END PROCESS t_prcs_binInput_2;
--- binInput[1]
-t_prcs_binInput_1: PROCESS
-BEGIN
-	binInput(1) <= '0';
-	WAIT FOR 120000 ps;
-	binInput(1) <= '1';
-	WAIT FOR 80000 ps;
-	binInput(1) <= '0';
-WAIT;
-END PROCESS t_prcs_binInput_1;
--- binInput[0]
-t_prcs_binInput_0: PROCESS
-BEGIN
-	binInput(0) <= '0';
-	WAIT FOR 20000 ps;
-	binInput(0) <= '1';
+	bin_input(6) <= '0';
+	WAIT FOR 60000 ps;
+	bin_input(6) <= '1';
 	WAIT FOR 180000 ps;
-	binInput(0) <= '0';
+	bin_input(6) <= '0';
 WAIT;
-END PROCESS t_prcs_binInput_0;
-END decoder_arch;
+END PROCESS t_prcs_bin_input_6;
+-- bin_input[5]
+t_prcs_bin_input_5: PROCESS
+BEGIN
+	bin_input(5) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_5;
+-- bin_input[4]
+t_prcs_bin_input_4: PROCESS
+BEGIN
+	bin_input(4) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_4;
+-- bin_input[3]
+t_prcs_bin_input_3: PROCESS
+BEGIN
+	bin_input(3) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_3;
+-- bin_input[2]
+t_prcs_bin_input_2: PROCESS
+BEGIN
+	bin_input(2) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_2;
+-- bin_input[1]
+t_prcs_bin_input_1: PROCESS
+BEGIN
+	bin_input(1) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_1;
+-- bin_input[0]
+t_prcs_bin_input_0: PROCESS
+BEGIN
+	bin_input(0) <= '0';
+WAIT;
+END PROCESS t_prcs_bin_input_0;
+
+-- clk
+t_prcs_clk: PROCESS
+BEGIN
+LOOP
+	clk <= '0';
+	WAIT FOR 25000 ps;
+	clk <= '1';
+	WAIT FOR 25000 ps;
+	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
+END LOOP;
+END PROCESS t_prcs_clk;
+END bin_to_bcd_fsm_arch;

@@ -4,55 +4,75 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "decOut_n[0]",
+					"name" : "digit1[0]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[1]",
+					"name" : "digit1[1]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[2]",
+					"name" : "digit1[2]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[3]",
+					"name" : "digit1[3]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[4]",
+					"name" : "digit0[0]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[5]",
+					"name" : "digit0[1]",
 					"strict" : false
 				},
 				{
-					"name" : "decOut_n[6]",
+					"name" : "digit0[2]",
 					"strict" : false
 				},
 				{
-					"name" : "binInput[4]",
+					"name" : "digit0[3]",
 					"strict" : false
 				},
 				{
-					"name" : "binInput[0]",
+					"name" : "done",
 					"strict" : false
 				},
 				{
-					"name" : "binInput[1]",
+					"name" : "clk",
 					"strict" : false
 				},
 				{
-					"name" : "binInput[2]",
+					"name" : "activate",
 					"strict" : false
 				},
 				{
-					"name" : "binInput[3]",
+					"name" : "bin_input[0]",
 					"strict" : false
 				},
 				{
-					"name" : "enable",
+					"name" : "bin_input[1]",
+					"strict" : false
+				},
+				{
+					"name" : "bin_input[2]",
+					"strict" : false
+				},
+				{
+					"name" : "bin_input[3]",
+					"strict" : false
+				},
+				{
+					"name" : "bin_input[4]",
+					"strict" : false
+				},
+				{
+					"name" : "bin_input[5]",
+					"strict" : false
+				},
+				{
+					"name" : "bin_input[6]",
 					"strict" : false
 				}
 			]
