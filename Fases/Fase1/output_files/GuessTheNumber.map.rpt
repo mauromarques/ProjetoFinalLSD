@@ -1,5 +1,5 @@
 Analysis & Synthesis report for GuessTheNumber
-Mon Jun 07 15:25:10 2021
+Mon Jun 07 16:01:51 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,12 +13,13 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |bin_to_bcd_fsm|estado
-  9. General Register Statistics
- 10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Post-Synthesis Netlist Statistics for Top Partition
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Inverted Register Statistics
+ 10. Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_08_gen
+ 11. Port Connectivity Checks: "pseudo_random_generator:rnd_08_gen"
+ 12. Post-Synthesis Netlist Statistics for Top Partition
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -44,16 +45,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Jun 07 15:25:10 2021       ;
+; Analysis & Synthesis Status        ; Successful - Mon Jun 07 16:01:51 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; GuessTheNumber                              ;
-; Top-level Entity Name              ; bin_to_bcd_fsm                              ;
+; Top-level Entity Name              ; random_tl                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 26                                          ;
-;     Total combinational functions  ; 17                                          ;
-;     Dedicated logic registers      ; 23                                          ;
-; Total registers                    ; 23                                          ;
-; Total pins                         ; 18                                          ;
+; Total logic elements               ; 447                                         ;
+;     Total combinational functions  ; 441                                         ;
+;     Dedicated logic registers      ; 433                                         ;
+; Total registers                    ; 433                                         ;
+; Total pins                         ; 9                                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -67,7 +68,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; bin_to_bcd_fsm     ; GuessTheNumber     ;
+; Top-level entity name                                                      ; random_tl          ; GuessTheNumber     ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -160,71 +161,62 @@ refer to the applicable agreement for further details.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                   ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
-; bin_to_bcd_fsm.vhd               ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/bin_to_bcd_fsm.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; pseudo_random_generator.vhd      ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/pseudo_random_generator.vhd ;         ;
+; random_tl.vhd                    ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/random_tl.vhd               ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 26        ;
-;                                             ;           ;
-; Total combinational functions               ; 17        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 6         ;
-;     -- 3 input functions                    ; 3         ;
-;     -- <=2 input functions                  ; 8         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 12        ;
-;     -- arithmetic mode                      ; 5         ;
-;                                             ;           ;
-; Total registers                             ; 23        ;
-;     -- Dedicated logic registers            ; 23        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 18        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 23        ;
-; Total fan-out                               ; 151       ;
-; Average fan-out                             ; 1.99      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 447            ;
+;                                             ;                ;
+; Total combinational functions               ; 441            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 383            ;
+;     -- 3 input functions                    ; 3              ;
+;     -- <=2 input functions                  ; 55             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 397            ;
+;     -- arithmetic mode                      ; 44             ;
+;                                             ;                ;
+; Total registers                             ; 433            ;
+;     -- Dedicated logic registers            ; 433            ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 9              ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 433            ;
+; Total fan-out                               ; 2545           ;
+; Average fan-out                             ; 2.85           ;
++---------------------------------------------+----------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name    ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
-; |bin_to_bcd_fsm            ; 17 (17)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 18   ; 0            ; |bin_to_bcd_fsm     ; bin_to_bcd_fsm ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node              ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                           ; Entity Name             ; Library Name ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+-------------------------+--------------+
+; |random_tl                              ; 441 (2)             ; 433 (8)                   ; 0           ; 0            ; 0       ; 0         ; 9    ; 0            ; |random_tl                                    ; random_tl               ; work         ;
+;    |pseudo_random_generator:rnd_08_gen| ; 439 (439)           ; 425 (425)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |random_tl|pseudo_random_generator:rnd_08_gen ; pseudo_random_generator ; work         ;
++-----------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------+-------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+------------------------------------------------------------+
-; State Machine - |bin_to_bcd_fsm|estado                     ;
-+---------------+---------------+--------------+-------------+
-; Name          ; estado.finish ; estado.sub10 ; estado.idle ;
-+---------------+---------------+--------------+-------------+
-; estado.idle   ; 0             ; 0            ; 0           ;
-; estado.sub10  ; 0             ; 1            ; 1           ;
-; estado.finish ; 1             ; 0            ; 1           ;
-+---------------+---------------+--------------+-------------+
 
 
 +------------------------------------------------------+
@@ -232,24 +224,105 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 23    ;
+; Total registers                              ; 433   ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 6     ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 18    ;
+; Number of registers using Clock Enable       ; 24    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                     ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |bin_to_bcd_fsm|s_dezenasUNSIGNED[0] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |bin_to_bcd_fsm|s_inputUNSIGNED[6]   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------+
++-----------------------------------------------------------+
+; Inverted Register Statistics                              ;
++-------------------------------------------------+---------+
+; Inverted Register                               ; Fan out ;
++-------------------------------------------------+---------+
+; pseudo_random_generator:rnd_08_gen|state_10[2]  ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_10[5]  ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_08[18] ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_08[45] ; 2       ;
+; pseudo_random_generator:rnd_08_gen|state_08[5]  ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_08[32] ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_07[16] ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_07[45] ; 2       ;
+; pseudo_random_generator:rnd_08_gen|state_07[37] ; 1       ;
+; pseudo_random_generator:rnd_08_gen|state_07[5]  ; 2       ;
+; pseudo_random_generator:rnd_08_gen|state_07[32] ; 2       ;
+; pseudo_random_generator:rnd_08_gen|state_07[18] ; 2       ;
+; pseudo_random_generator:rnd_08_gen|state_07[2]  ; 3       ;
+; pseudo_random_generator:rnd_08_gen|state_06[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_06[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_05[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_04[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_03[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_02[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[5]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[45] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[18] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[2]  ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[32] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[16] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_01[37] ; 4       ;
+; pseudo_random_generator:rnd_08_gen|state_00[45] ; 5       ;
+; pseudo_random_generator:rnd_08_gen|state_00[16] ; 6       ;
+; pseudo_random_generator:rnd_08_gen|state_00[18] ; 6       ;
+; pseudo_random_generator:rnd_08_gen|state_00[37] ; 5       ;
+; pseudo_random_generator:rnd_08_gen|state_00[32] ; 5       ;
+; pseudo_random_generator:rnd_08_gen|state_00[2]  ; 6       ;
+; pseudo_random_generator:rnd_08_gen|state_00[5]  ; 6       ;
+; Total number of inverted registers = 62         ;         ;
++-------------------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pseudo_random_generator:rnd_08_gen     ;
++----------------+--------------------------------------------------+-----------------+
+; Parameter Name ; Value                                            ; Type            ;
++----------------+--------------------------------------------------+-----------------+
+; n_bits         ; 8                                                ; Signed Integer  ;
+; seed           ; 001000000010000100000000000001010000000000100100 ; Unsigned Binary ;
++----------------+--------------------------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Port Connectivity Checks: "pseudo_random_generator:rnd_08_gen" ;
++--------+-------+----------+------------------------------------+
+; Port   ; Type  ; Severity ; Details                            ;
++--------+-------+----------+------------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                       ;
++--------+-------+----------+------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -257,22 +330,21 @@ Encoding Type:  One-Hot
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 18                          ;
-; cycloneiii_ff         ; 23                          ;
-;     ENA               ; 12                          ;
-;     ENA SLD           ; 6                           ;
-;     plain             ; 5                           ;
-; cycloneiii_lcell_comb ; 17                          ;
-;     arith             ; 5                           ;
-;         2 data inputs ; 5                           ;
-;     normal            ; 12                          ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 2                           ;
-;         3 data inputs ; 3                           ;
-;         4 data inputs ; 6                           ;
+; boundary_port         ; 9                           ;
+; cycloneiii_ff         ; 433                         ;
+;     ENA               ; 24                          ;
+;     plain             ; 409                         ;
+; cycloneiii_lcell_comb ; 441                         ;
+;     arith             ; 44                          ;
+;         2 data inputs ; 42                          ;
+;         3 data inputs ; 2                           ;
+;     normal            ; 397                         ;
+;         1 data inputs ; 13                          ;
+;         3 data inputs ; 1                           ;
+;         4 data inputs ; 383                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 3.00                        ;
-; Average LUT depth     ; 1.20                        ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.31                        ;
 +-----------------------+-----------------------------+
 
 
@@ -291,7 +363,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Jun 07 15:24:48 2021
+    Info: Processing started: Mon Jun 07 16:01:28 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GuessTheNumber -c GuessTheNumber
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -307,18 +379,26 @@ Info (12021): Found 2 design units, including 1 entities, in source file decoder
 Info (12021): Found 2 design units, including 1 entities, in source file bin_to_bcd_fsm.vhd
     Info (12022): Found design unit 1: bin_to_bcd_fsm-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/bin_to_bcd_fsm.vhd Line: 15
     Info (12023): Found entity 1: bin_to_bcd_fsm File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/bin_to_bcd_fsm.vhd Line: 5
-Info (12127): Elaborating entity "bin_to_bcd_fsm" for the top level hierarchy
+Info (12021): Found 3 design units, including 1 entities, in source file pseudo_random_generator.vhd
+    Info (12022): Found design unit 1: pseudo_random_generator-heavy File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/pseudo_random_generator.vhd Line: 40
+    Info (12022): Found design unit 2: pseudo_random_generator-light File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/pseudo_random_generator.vhd Line: 1304
+    Info (12023): Found entity 1: pseudo_random_generator File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/pseudo_random_generator.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file random_tl.vhd
+    Info (12022): Found design unit 1: random_tl-gets_the_job_done File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/random_tl.vhd Line: 18
+    Info (12023): Found entity 1: random_tl File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/random_tl.vhd Line: 10
+Info (12127): Elaborating entity "random_tl" for the top level hierarchy
+Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:heavy" for hierarchy "pseudo_random_generator:rnd_08_gen" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase1/random_tl.vhd Line: 31
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 45 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 9 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 27 logic cells
+Info (21057): Implemented 456 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 8 output pins
+    Info (21061): Implemented 447 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4782 megabytes
-    Info: Processing ended: Mon Jun 07 15:25:10 2021
-    Info: Elapsed time: 00:00:22
-    Info: Total CPU time (on all processors): 00:00:45
+    Info: Peak virtual memory: 4789 megabytes
+    Info: Processing ended: Mon Jun 07 16:01:51 2021
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:47
 
 

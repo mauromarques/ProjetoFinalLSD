@@ -1,0 +1,100 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/mmcan/Downloads/ProjetoFinalLSD/pseudo_random_example/simulation/qsim
+Epseudo_random_generator_example_tl
+Z1 w1623077542
+Z2 DPx10 cycloneive 20 cycloneive_atom_pack 0 22 N5CzKW88F^ShIK@<7Vek12
+Z3 DPx10 cycloneive 21 cycloneive_components 0 22 K8IbX`K5[Y1gJUKg2X_071
+Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
+Z5 DPx6 altera 11 dffeas_pack 0 22 ?bDUB9Db2N8iCCALNL;CT3
+Z6 DPx4 ieee 12 vital_timing 0 22 J>EBealN09f8GzldA[z2>3
+Z7 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z8 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z9 DPx6 altera 28 altera_primitives_components 0 22 c]VUMXSEi8Z`KM1bem<:B3
+R0
+Z10 8rnd_example.vho
+Z11 Frnd_example.vho
+l0
+L36
+V;^jDj;V37Y?n4OX=LaCWb2
+!s100 `?]FKN[D@9OcJ5Nk>lMY81
+Z12 OV;C;10.5b;63
+32
+Z13 !s110 1623077544
+!i10b 1
+Z14 !s108 1623077544.000000
+Z15 !s90 -work|work|rnd_example.vho|
+Z16 !s107 rnd_example.vho|
+!i113 1
+Z17 o-work work
+Z18 tExplicit 1 CvgOpt 0
+Astructure
+R2
+R3
+R4
+R5
+R6
+R7
+R8
+R9
+DEx4 work 34 pseudo_random_generator_example_tl 0 22 ;^jDj;V37Y?n4OX=LaCWb2
+l574
+L44
+VCO1SoH=:F5CQRCHTS7TY23
+!s100 aiV;55_dz1ODML]AG2zT]3
+R12
+32
+R13
+!i10b 1
+R14
+R15
+R16
+!i113 1
+R17
+R18
+Epseudo_random_generator_example_tl_vhd_vec_tst
+Z19 w1623077539
+R7
+R8
+R0
+Z20 8Waveform.vwf.vht
+Z21 FWaveform.vwf.vht
+l0
+L31
+VY_ILSX@0>]S6iMO_Fh9Mb0
+!s100 QEMfzCk3bZ7X0nWbNihSG0
+R12
+32
+Z22 !s110 1623077545
+!i10b 1
+R14
+Z23 !s90 -work|work|Waveform.vwf.vht|
+Z24 !s107 Waveform.vwf.vht|
+!i113 1
+R17
+R18
+Apseudo_random_generator_example_tl_arch
+R7
+R8
+Z25 DEx4 work 46 pseudo_random_generator_example_tl_vhd_vec_tst 0 22 Y_ILSX@0>]S6iMO_Fh9Mb0
+l46
+L33
+VgGEDa7S;d_:O9TOMRQL<A0
+!s100 QI19EQD7XSHR92I@1HW>n1
+R12
+32
+R22
+!i10b 1
+R14
+R23
+R24
+!i113 1
+R17
+R18

@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Mon Jun 07 15:47:21 2021
+Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+Revision Name : rnd_example
+Top-level Entity Name : pseudo_random_generator_example_tl
+Family : Cyclone IV E
+Total logic elements : 447
+    Total combinational functions : 441
+    Dedicated logic registers : 433
+Total registers : 433
+Total pins : 10
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
