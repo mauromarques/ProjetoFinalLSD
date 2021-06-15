@@ -1,0 +1,137 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -4.488
+TNS   : -825.180
+
+Type  : Slow 1200mV 85C Model Setup 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -2.003
+TNS   : -380.320
+
+Type  : Slow 1200mV 85C Model Setup 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -0.774
+TNS   : -13.241
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : 0.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -0.276
+TNS   : -1.104
+
+Type  : Slow 1200mV 85C Model Removal 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.641
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -465.600
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -1.285
+TNS   : -600.095
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -1.285
+TNS   : -59.110
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -4.039
+TNS   : -725.630
+
+Type  : Slow 1200mV 0C Model Setup 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -1.665
+TNS   : -297.806
+
+Type  : Slow 1200mV 0C Model Setup 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -0.607
+TNS   : -7.871
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.337
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : 0.364
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -0.170
+TNS   : -0.680
+
+Type  : Slow 1200mV 0C Model Removal 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.594
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -465.600
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -1.285
+TNS   : -600.095
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -1.285
+TNS   : -59.110
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -1.700
+TNS   : -231.302
+
+Type  : Fast 1200mV 0C Model Setup 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -0.484
+TNS   : -13.196
+
+Type  : Fast 1200mV 0C Model Setup 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.128
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.173
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.182
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : 0.188
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.321
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : 0.326
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -386.082
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c8|clkOut'
+Slack : -1.000
+TNS   : -467.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'divisorCompleto:freqDivider|divisorN:c1|clkOut'
+Slack : -1.000
+TNS   : -46.000
+
+------------------------------------------------------------

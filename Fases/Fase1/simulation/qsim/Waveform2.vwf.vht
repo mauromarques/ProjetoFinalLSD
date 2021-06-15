@@ -18,9 +18,9 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "06/07/2021 15:31:34"
+-- Generated on "06/15/2021 08:42:32"
                                                              
--- Vhdl Test Bench(with test vectors) for design  :          bin_to_bcd_fsm
+-- Vhdl Test Bench(with test vectors) for design  :          counter
 -- 
 -- Simulation tool : 3rd Party
 -- 
@@ -28,145 +28,51 @@
 LIBRARY ieee;                                               
 USE ieee.std_logic_1164.all;                                
 
-ENTITY bin_to_bcd_fsm_vhd_vec_tst IS
-END bin_to_bcd_fsm_vhd_vec_tst;
-ARCHITECTURE bin_to_bcd_fsm_arch OF bin_to_bcd_fsm_vhd_vec_tst IS
+ENTITY counter_vhd_vec_tst IS
+END counter_vhd_vec_tst;
+ARCHITECTURE counter_arch OF counter_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
-SIGNAL activate : STD_LOGIC;
-SIGNAL bin_input : STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL clk : STD_LOGIC;
-SIGNAL digit0 : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL digit1 : STD_LOGIC_VECTOR(3 DOWNTO 0);
-SIGNAL done : STD_LOGIC;
-COMPONENT bin_to_bcd_fsm
+SIGNAL ledr : STD_LOGIC_VECTOR(17 DOWNTO 0);
+SIGNAL move : STD_LOGIC;
+SIGNAL reset : STD_LOGIC;
+COMPONENT counter
 	PORT (
-	activate : IN STD_LOGIC;
-	bin_input : IN STD_LOGIC_VECTOR(6 DOWNTO 0);
 	clk : IN STD_LOGIC;
-	digit0 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	digit1 : OUT STD_LOGIC_VECTOR(3 DOWNTO 0);
-	done : OUT STD_LOGIC
+	ledr : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+	move : OUT STD_LOGIC;
+	reset : IN STD_LOGIC
 	);
 END COMPONENT;
 BEGIN
-	i1 : bin_to_bcd_fsm
+	i1 : counter
 	PORT MAP (
 -- list connections between master ports and signals
-	activate => activate,
-	bin_input => bin_input,
 	clk => clk,
-	digit0 => digit0,
-	digit1 => digit1,
-	done => done
+	ledr => ledr,
+	move => move,
+	reset => reset
 	);
 
 -- clk
 t_prcs_clk: PROCESS
 BEGIN
-LOOP
+	FOR i IN 1 TO 33
+	LOOP
+		clk <= '0';
+		WAIT FOR 15000 ps;
+		clk <= '1';
+		WAIT FOR 15000 ps;
+	END LOOP;
 	clk <= '0';
-	WAIT FOR 20000 ps;
-	clk <= '1';
-	WAIT FOR 20000 ps;
-	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
-END LOOP;
+WAIT;
 END PROCESS t_prcs_clk;
 
--- activate
-t_prcs_activate: PROCESS
+-- reset
+t_prcs_reset: PROCESS
 BEGIN
-	activate <= '0';
-	WAIT FOR 40000 ps;
-	activate <= '1';
-	WAIT FOR 40000 ps;
-	activate <= '0';
-	WAIT FOR 120000 ps;
-	activate <= '1';
-	WAIT FOR 40000 ps;
-	activate <= '0';
-	WAIT FOR 120000 ps;
-	activate <= '1';
-	WAIT FOR 40000 ps;
-	activate <= '0';
+	reset <= '0';
 WAIT;
-END PROCESS t_prcs_activate;
--- bin_input[6]
-t_prcs_bin_input_6: PROCESS
-BEGIN
-	bin_input(6) <= '0';
-	WAIT FOR 360000 ps;
-	bin_input(6) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(6) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_6;
--- bin_input[5]
-t_prcs_bin_input_5: PROCESS
-BEGIN
-	bin_input(5) <= '0';
-	WAIT FOR 360000 ps;
-	bin_input(5) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(5) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_5;
--- bin_input[4]
-t_prcs_bin_input_4: PROCESS
-BEGIN
-	bin_input(4) <= '0';
-	WAIT FOR 40000 ps;
-	bin_input(4) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(4) <= '0';
-	WAIT FOR 120000 ps;
-	bin_input(4) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(4) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_4;
--- bin_input[3]
-t_prcs_bin_input_3: PROCESS
-BEGIN
-	bin_input(3) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_3;
--- bin_input[2]
-t_prcs_bin_input_2: PROCESS
-BEGIN
-	bin_input(2) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_2;
--- bin_input[1]
-t_prcs_bin_input_1: PROCESS
-BEGIN
-	bin_input(1) <= '0';
-	WAIT FOR 40000 ps;
-	bin_input(1) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(1) <= '0';
-	WAIT FOR 120000 ps;
-	bin_input(1) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(1) <= '0';
-	WAIT FOR 120000 ps;
-	bin_input(1) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(1) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_1;
--- bin_input[0]
-t_prcs_bin_input_0: PROCESS
-BEGIN
-	bin_input(0) <= '0';
-	WAIT FOR 40000 ps;
-	bin_input(0) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(0) <= '0';
-	WAIT FOR 280000 ps;
-	bin_input(0) <= '1';
-	WAIT FOR 40000 ps;
-	bin_input(0) <= '0';
-WAIT;
-END PROCESS t_prcs_bin_input_0;
-END bin_to_bcd_fsm_arch;
+END PROCESS t_prcs_reset;
+END counter_arch;

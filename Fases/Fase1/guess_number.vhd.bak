@@ -1,0 +1,38 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity guess_number is
+	port (keys : in std_logic_vector(3 downto 0);
+			sw : in std_logic_vector(0 downto 0);
+			ledr : out std_logic_vector(17 downto 0);
+			clock_50 : in std_logic;
+			n_attempts : out std_logic_vector(6 downto 0);
+			activate : out std_logic;
+			done1 : in std_logic;
+			attempt : out std_logic_vector(6 downto 0);
+			done2 : in std_logic;
+			selector : out std_logic;
+			enable : out std_logic_vector(2 downto 0);
+			texto : out std_logic_vector(4 downto 0);
+			rnd : in std_logic_vector(7 downto 0);
+			c1hz : in std_logic;
+			c2hz : in std_logic;
+			c4hz : in std_logic;
+			c8hz : in std_logic);
+end guess_number;
+
+architecture v1 of guess_number is
+	type state is (guess_n1, grupo_xx, jogo, cheater, terminar);
+	signal estado : state;
+begin
+
+	sync_proc: process(clk, estado)
+	begin
+		if (rising_edge(clk)) then
+			if (activate = '0') then
+				estado <= idle;
+			end if;
+			
+		case estado is
+		when idle => 

@@ -1,5 +1,20 @@
 
-State Machine - |bin_to_bcd_fsm|estado
+State Machine - |topLevel|guess_number:guessGame|estado
+Name estado.waiting estado.conversao1 estado.terminar estado.jogo estado.grupo_xx estado.guess_n1 
+estado.guess_n1 0 0 0 0 0 0 
+estado.grupo_xx 0 0 0 0 1 1 
+estado.jogo 0 0 0 1 0 1 
+estado.terminar 0 0 1 0 0 1 
+estado.conversao1 0 1 0 0 0 1 
+estado.waiting 1 0 0 0 0 1 
+
+State Machine - |topLevel|bin_to_bcd_fsm:conversor2|estado
+Name estado.finish estado.sub10 estado.idle 
+estado.idle 0 0 0 
+estado.sub10 0 1 1 
+estado.finish 1 0 1 
+
+State Machine - |topLevel|bin_to_bcd_fsm:conversor1|estado
 Name estado.finish estado.sub10 estado.idle 
 estado.idle 0 0 0 
 estado.sub10 0 1 1 
