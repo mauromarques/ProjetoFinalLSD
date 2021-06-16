@@ -1,0 +1,941 @@
+Analysis & Synthesis report for GuessTheNumber
+Wed Jun 16 15:42:39 2021
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |topLevel|guess_number:guessGame|estado
+  9. State Machine - |topLevel|bin_to_bcd_fsm:conversor2|estado
+ 10. State Machine - |topLevel|bin_to_bcd_fsm:conversor1|estado
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: pseudo_random_generator:random
+ 17. Parameter Settings for User Entity Instance: DebounceUnit:debounce0
+ 18. Parameter Settings for User Entity Instance: DebounceUnit:debounce1
+ 19. Parameter Settings for User Entity Instance: DebounceUnit:debounce2
+ 20. Parameter Settings for User Entity Instance: DebounceUnit:debounce3
+ 21. Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c1
+ 22. Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c2
+ 23. Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c4
+ 24. Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c8
+ 25. Port Connectivity Checks: "guess_number:guessGame|SeqShiftUnit:rotator"
+ 26. Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c8"
+ 27. Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c4"
+ 28. Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c2"
+ 29. Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c1"
+ 30. Port Connectivity Checks: "display_selector:displaySelector"
+ 31. Port Connectivity Checks: "decoder:dec7"
+ 32. Port Connectivity Checks: "decoder:dec6"
+ 33. Port Connectivity Checks: "decoder:dec5"
+ 34. Port Connectivity Checks: "decoder:dec4"
+ 35. Port Connectivity Checks: "decoder:dec3"
+ 36. Port Connectivity Checks: "decoder:dec2"
+ 37. Port Connectivity Checks: "decoder:dec1"
+ 38. Port Connectivity Checks: "decoder:dec0"
+ 39. Port Connectivity Checks: "pseudo_random_generator:random"
+ 40. Post-Synthesis Netlist Statistics for Top Partition
+ 41. Elapsed Time Per Partition
+ 42. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 16 15:42:38 2021       ;
+; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
+; Revision Name                      ; GuessTheNumber                              ;
+; Top-level Entity Name              ; topLevel                                    ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 1,357                                       ;
+;     Total combinational functions  ; 1,320                                       ;
+;     Dedicated logic registers      ; 903                                         ;
+; Total registers                    ; 903                                         ;
+; Total pins                         ; 105                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                                      ; topLevel           ; GuessTheNumber     ;
+; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                              ; Enable             ; Enable             ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                                        ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                            ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                     ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+; divisorN.vhd                     ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorN.vhd                ;         ;
+; divisorCompleto.vhd              ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd         ;         ;
+; bin_to_bcd_fsm.vhd               ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/bin_to_bcd_fsm.vhd          ;         ;
+; pseudo_random_generator.vhd      ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/pseudo_random_generator.vhd ;         ;
+; guess_number.vhd                 ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd            ;         ;
+; counter.vhd                      ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/counter.vhd                 ;         ;
+; SeqShiftUnit.vhd                 ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/SeqShiftUnit.vhd            ;         ;
+; display_selector.vhd             ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd        ;         ;
+; topLevel.vhd                     ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd                ;         ;
+; decoder.vhd                      ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/decoder.vhd                 ;         ;
+; DebounceUnit.vhd                 ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/DebounceUnit.vhd            ;         ;
+; blinker.vhd                      ; yes             ; User VHDL File  ; C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/blinker.vhd                 ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                                  ;
++---------------------------------------------+------------------------------------------------+
+; Resource                                    ; Usage                                          ;
++---------------------------------------------+------------------------------------------------+
+; Estimated Total logic elements              ; 1,357                                          ;
+;                                             ;                                                ;
+; Total combinational functions               ; 1320                                           ;
+; Logic element usage by number of LUT inputs ;                                                ;
+;     -- 4 input functions                    ; 764                                            ;
+;     -- 3 input functions                    ; 171                                            ;
+;     -- <=2 input functions                  ; 385                                            ;
+;                                             ;                                                ;
+; Logic elements by mode                      ;                                                ;
+;     -- normal mode                          ; 1074                                           ;
+;     -- arithmetic mode                      ; 246                                            ;
+;                                             ;                                                ;
+; Total registers                             ; 903                                            ;
+;     -- Dedicated logic registers            ; 903                                            ;
+;     -- I/O registers                        ; 0                                              ;
+;                                             ;                                                ;
+; I/O pins                                    ; 105                                            ;
+;                                             ;                                                ;
+; Embedded Multiplier 9-bit elements          ; 0                                              ;
+;                                             ;                                                ;
+; Maximum fan-out node                        ; divisorCompleto:freqDivider|divisorN:c8|clkOut ;
+; Maximum fan-out                             ; 468                                            ;
+; Total fan-out                               ; 6661                                           ;
+; Average fan-out                             ; 2.74                                           ;
++---------------------------------------------+------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                               ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name             ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
+; |topLevel                             ; 1320 (0)            ; 903 (0)                   ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |topLevel                                             ; topLevel                ; work         ;
+;    |DebounceUnit:debounce0|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce0                      ; DebounceUnit            ; work         ;
+;    |DebounceUnit:debounce1|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce1                      ; DebounceUnit            ; work         ;
+;    |DebounceUnit:debounce2|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce2                      ; DebounceUnit            ; work         ;
+;    |DebounceUnit:debounce3|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce3                      ; DebounceUnit            ; work         ;
+;    |bin_to_bcd_fsm:conversor1|        ; 17 (17)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|bin_to_bcd_fsm:conversor1                   ; bin_to_bcd_fsm          ; work         ;
+;    |bin_to_bcd_fsm:conversor2|        ; 17 (17)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|bin_to_bcd_fsm:conversor2                   ; bin_to_bcd_fsm          ; work         ;
+;    |decoder:dec0|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec0                                ; decoder                 ; work         ;
+;    |decoder:dec1|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec1                                ; decoder                 ; work         ;
+;    |decoder:dec2|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec2                                ; decoder                 ; work         ;
+;    |decoder:dec3|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec3                                ; decoder                 ; work         ;
+;    |decoder:dec4|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec4                                ; decoder                 ; work         ;
+;    |decoder:dec5|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec5                                ; decoder                 ; work         ;
+;    |decoder:dec6|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec6                                ; decoder                 ; work         ;
+;    |decoder:dec7|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec7                                ; decoder                 ; work         ;
+;    |display_selector:displaySelector| ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|display_selector:displaySelector            ; display_selector        ; work         ;
+;    |divisorCompleto:freqDivider|      ; 117 (0)             ; 77 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider                 ; divisorCompleto         ; work         ;
+;       |divisorN:c1|                   ; 41 (41)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c1     ; divisorN                ; work         ;
+;       |divisorN:c2|                   ; 39 (39)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c2     ; divisorN                ; work         ;
+;       |divisorN:c8|                   ; 37 (37)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c8     ; divisorN                ; work         ;
+;    |guess_number:guessGame|           ; 232 (184)           ; 169 (121)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame                      ; guess_number            ; work         ;
+;       |SeqShiftUnit:rotator|          ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|SeqShiftUnit:rotator ; SeqShiftUnit            ; work         ;
+;       |blinker:blinker2|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker2     ; blinker                 ; work         ;
+;       |blinker:blinker|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker      ; blinker                 ; work         ;
+;       |counter:count|                 ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|counter:count        ; counter                 ; work         ;
+;    |pseudo_random_generator:random|   ; 481 (481)           ; 467 (467)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|pseudo_random_generator:random              ; pseudo_random_generator ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |topLevel|guess_number:guessGame|estado                                                                    ;
++-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
+; Name              ; estado.waiting ; estado.conversao1 ; estado.terminar ; estado.jogo ; estado.grupo_xx ; estado.guess_n1 ;
++-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
+; estado.guess_n1   ; 0              ; 0                 ; 0               ; 0           ; 0               ; 0               ;
+; estado.grupo_xx   ; 0              ; 0                 ; 0               ; 0           ; 1               ; 1               ;
+; estado.jogo       ; 0              ; 0                 ; 0               ; 1           ; 0               ; 1               ;
+; estado.terminar   ; 0              ; 0                 ; 1               ; 0           ; 0               ; 1               ;
+; estado.conversao1 ; 0              ; 1                 ; 0               ; 0           ; 0               ; 1               ;
+; estado.waiting    ; 1              ; 0                 ; 0               ; 0           ; 0               ; 1               ;
++-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------+
+; State Machine - |topLevel|bin_to_bcd_fsm:conversor2|estado ;
++---------------+---------------+--------------+-------------+
+; Name          ; estado.finish ; estado.sub10 ; estado.idle ;
++---------------+---------------+--------------+-------------+
+; estado.idle   ; 0             ; 0            ; 0           ;
+; estado.sub10  ; 0             ; 1            ; 1           ;
+; estado.finish ; 1             ; 0            ; 1           ;
++---------------+---------------+--------------+-------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------+
+; State Machine - |topLevel|bin_to_bcd_fsm:conversor1|estado ;
++---------------+---------------+--------------+-------------+
+; Name          ; estado.finish ; estado.sub10 ; estado.idle ;
++---------------+---------------+--------------+-------------+
+; estado.idle   ; 0             ; 0            ; 0           ;
+; estado.sub10  ; 0             ; 1            ; 1           ;
+; estado.finish ; 1             ; 0            ; 1           ;
++---------------+---------------+--------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                    ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; Register name                                       ; Reason for Removal                                              ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+; guess_number:guessGame|s_InTextRotate[3..7]         ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[2]            ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[1]            ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[0]            ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_mid[7]                     ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[8..12]        ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[13,14]        ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[15..19]       ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[20,21]        ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[22,23]        ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[24..27]       ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[28]           ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[29]           ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[30,31]        ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[32]           ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[33]           ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[34,35]        ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[36]           ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[37,38]        ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[39]           ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|blinker:blinker2|s_enable[2] ; Merged with guess_number:guessGame|blinker:blinker2|s_enable[1] ;
+; guess_number:guessGame|s_resposta[1,2,6,7,15..17]   ; Merged with guess_number:guessGame|s_resposta[0]                ;
+; guess_number:guessGame|s_resposta[12]               ; Merged with guess_number:guessGame|s_resposta[11]               ;
+; guess_number:guessGame|s_resposta[3,4,18,19]        ; Merged with guess_number:guessGame|s_resposta[10]               ;
+; guess_number:guessGame|s_resposta[9]                ; Merged with guess_number:guessGame|s_resposta[13]               ;
+; guess_number:guessGame|s_resposta[8]                ; Merged with guess_number:guessGame|s_resposta[5]                ;
+; guess_number:guessGame|counter:count|s_ledr[1..17]  ; Merged with guess_number:guessGame|counter:count|s_ledr[0]      ;
+; guess_number:guessGame|enable[2]                    ; Merged with guess_number:guessGame|enable[1]                    ;
+; guess_number:guessGame|blinker:blinker|s_enable[2]  ; Merged with guess_number:guessGame|blinker:blinker|s_enable[1]  ;
+; guess_number:guessGame|blinker:blinker2|s_enable[1] ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|blinker:blinker|s_enable[1]  ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|enable[1]                    ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_resposta[10]               ; Stuck at VCC due to stuck port data_in                          ;
+; guess_number:guessGame|s_resposta[0]                ; Stuck at GND due to stuck port data_in                          ;
+; Total Number of Removed Registers = 80              ;                                                                 ;
++-----------------------------------------------------+-----------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                              ;
++-----------------------------------------------------+---------------------------+----------------------------------------+
+; Register name                                       ; Reason for Removal        ; Registers Removed due to This Register ;
++-----------------------------------------------------+---------------------------+----------------------------------------+
+; guess_number:guessGame|blinker:blinker2|s_enable[1] ; Stuck at GND              ; guess_number:guessGame|enable[1]       ;
+;                                                     ; due to stuck port data_in ;                                        ;
++-----------------------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 903   ;
+; Number of registers using Synchronous Clear  ; 82    ;
+; Number of registers using Synchronous Load   ; 42    ;
+; Number of registers using Asynchronous Clear ; 4     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 211   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------+
+; Inverted Register Statistics                          ;
++---------------------------------------------+---------+
+; Inverted Register                           ; Fan out ;
++---------------------------------------------+---------+
+; pseudo_random_generator:random|state_10[2]  ; 1       ;
+; pseudo_random_generator:random|state_10[5]  ; 1       ;
+; pseudo_random_generator:random|state_10[16] ; 1       ;
+; pseudo_random_generator:random|state_09[37] ; 4       ;
+; pseudo_random_generator:random|state_09[45] ; 4       ;
+; pseudo_random_generator:random|state_08[18] ; 2       ;
+; pseudo_random_generator:random|state_08[45] ; 2       ;
+; pseudo_random_generator:random|state_08[5]  ; 3       ;
+; pseudo_random_generator:random|state_08[32] ; 3       ;
+; pseudo_random_generator:random|state_08[37] ; 1       ;
+; pseudo_random_generator:random|state_08[16] ; 2       ;
+; pseudo_random_generator:random|state_07[16] ; 4       ;
+; pseudo_random_generator:random|state_07[45] ; 4       ;
+; pseudo_random_generator:random|state_07[37] ; 4       ;
+; pseudo_random_generator:random|state_07[5]  ; 3       ;
+; pseudo_random_generator:random|state_07[32] ; 4       ;
+; pseudo_random_generator:random|state_07[18] ; 4       ;
+; pseudo_random_generator:random|state_07[2]  ; 4       ;
+; pseudo_random_generator:random|state_06[32] ; 4       ;
+; pseudo_random_generator:random|state_06[18] ; 4       ;
+; pseudo_random_generator:random|state_06[5]  ; 4       ;
+; pseudo_random_generator:random|state_06[45] ; 4       ;
+; pseudo_random_generator:random|state_06[2]  ; 4       ;
+; pseudo_random_generator:random|state_06[37] ; 4       ;
+; pseudo_random_generator:random|state_06[16] ; 4       ;
+; pseudo_random_generator:random|state_05[2]  ; 4       ;
+; pseudo_random_generator:random|state_05[37] ; 4       ;
+; pseudo_random_generator:random|state_05[18] ; 4       ;
+; pseudo_random_generator:random|state_05[45] ; 4       ;
+; pseudo_random_generator:random|state_05[16] ; 4       ;
+; pseudo_random_generator:random|state_05[5]  ; 4       ;
+; pseudo_random_generator:random|state_05[32] ; 4       ;
+; pseudo_random_generator:random|state_04[2]  ; 4       ;
+; pseudo_random_generator:random|state_04[16] ; 4       ;
+; pseudo_random_generator:random|state_04[18] ; 4       ;
+; pseudo_random_generator:random|state_04[5]  ; 4       ;
+; pseudo_random_generator:random|state_04[45] ; 4       ;
+; pseudo_random_generator:random|state_04[37] ; 4       ;
+; pseudo_random_generator:random|state_04[32] ; 4       ;
+; pseudo_random_generator:random|state_03[32] ; 4       ;
+; pseudo_random_generator:random|state_03[16] ; 4       ;
+; pseudo_random_generator:random|state_03[5]  ; 4       ;
+; pseudo_random_generator:random|state_03[18] ; 4       ;
+; pseudo_random_generator:random|state_03[2]  ; 4       ;
+; pseudo_random_generator:random|state_03[37] ; 4       ;
+; pseudo_random_generator:random|state_03[45] ; 4       ;
+; pseudo_random_generator:random|state_02[32] ; 4       ;
+; pseudo_random_generator:random|state_02[16] ; 4       ;
+; pseudo_random_generator:random|state_02[5]  ; 4       ;
+; pseudo_random_generator:random|state_02[2]  ; 4       ;
+; pseudo_random_generator:random|state_02[18] ; 4       ;
+; pseudo_random_generator:random|state_02[37] ; 4       ;
+; pseudo_random_generator:random|state_02[45] ; 4       ;
+; pseudo_random_generator:random|state_01[5]  ; 4       ;
+; pseudo_random_generator:random|state_01[45] ; 4       ;
+; pseudo_random_generator:random|state_01[18] ; 4       ;
+; pseudo_random_generator:random|state_01[2]  ; 4       ;
+; pseudo_random_generator:random|state_01[32] ; 4       ;
+; pseudo_random_generator:random|state_01[16] ; 4       ;
+; pseudo_random_generator:random|state_01[37] ; 4       ;
+; pseudo_random_generator:random|state_00[45] ; 5       ;
+; pseudo_random_generator:random|state_00[16] ; 6       ;
+; pseudo_random_generator:random|state_00[18] ; 6       ;
+; pseudo_random_generator:random|state_00[37] ; 5       ;
+; pseudo_random_generator:random|state_00[32] ; 5       ;
+; pseudo_random_generator:random|state_00[2]  ; 6       ;
+; pseudo_random_generator:random|state_00[5]  ; 6       ;
+; Total number of inverted registers = 67     ;         ;
++---------------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                         ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |topLevel|display_selector:displaySelector|bin2[1]       ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin4[3]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin7[4]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin4[4]       ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin7[0]       ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[37]               ;
+; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[16]               ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|ledr[3]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|s_hi[0]                 ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce0|s_debounceCnt[7]        ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce1|s_debounceCnt[11]       ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce2|s_debounceCnt[14]       ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce3|s_debounceCnt[6]        ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_dezenasUNSIGNED[1] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_inputUNSIGNED[5]   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_dezenasUNSIGNED[0] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_inputUNSIGNED[1]   ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|s_resposta[10]          ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |topLevel|guess_number:guessGame|s_resposta              ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |topLevel|guess_number:guessGame|Selector110             ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |topLevel|guess_number:guessGame|Selector111             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: pseudo_random_generator:random         ;
++----------------+--------------------------------------------------+-----------------+
+; Parameter Name ; Value                                            ; Type            ;
++----------------+--------------------------------------------------+-----------------+
+; n_bits         ; 18                                               ; Signed Integer  ;
+; seed           ; 001000000010000100000000000001010000000000100100 ; Unsigned Binary ;
++----------------+--------------------------------------------------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:debounce0 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                             ;
+; msecmininwidth ; 100   ; Signed Integer                             ;
+; inpolarity     ; '0'   ; Enumerated                                 ;
+; outpolarity    ; '1'   ; Enumerated                                 ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:debounce1 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                             ;
+; msecmininwidth ; 100   ; Signed Integer                             ;
+; inpolarity     ; '0'   ; Enumerated                                 ;
+; outpolarity    ; '1'   ; Enumerated                                 ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:debounce2 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                             ;
+; msecmininwidth ; 100   ; Signed Integer                             ;
+; inpolarity     ; '0'   ; Enumerated                                 ;
+; outpolarity    ; '1'   ; Enumerated                                 ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DebounceUnit:debounce3 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; khzclkfreq     ; 50000 ; Signed Integer                             ;
+; msecmininwidth ; 100   ; Signed Integer                             ;
+; inpolarity     ; '0'   ; Enumerated                                 ;
+; outpolarity    ; '1'   ; Enumerated                                 ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c1 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 26    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c2 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 25    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c4 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 24    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: divisorCompleto:freqDivider|divisorN:c8 ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; n              ; 23    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Port Connectivity Checks: "guess_number:guessGame|SeqShiftUnit:rotator" ;
++--------+-------+----------+---------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                     ;
++--------+-------+----------+---------------------------------------------+
+; rotate ; Input ; Info     ; Stuck at VCC                                ;
++--------+-------+----------+---------------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c8" ;
++----------------------+-------+----------+---------------------------+
+; Port                 ; Type  ; Severity ; Details                   ;
++----------------------+-------+----------+---------------------------+
+; fatordivisao[20..16] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[12..9]  ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[8..5]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[3..0]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[22]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[21]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[15]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[14]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[13]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[4]      ; Input ; Info     ; Stuck at VCC              ;
++----------------------+-------+----------+---------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c4" ;
++----------------------+-------+----------+---------------------------+
+; Port                 ; Type  ; Severity ; Details                   ;
++----------------------+-------+----------+---------------------------+
+; fatordivisao[21..17] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[13..10] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[9..6]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[4..0]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[23]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[22]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[16]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[15]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[14]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[5]      ; Input ; Info     ; Stuck at VCC              ;
++----------------------+-------+----------+---------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c2" ;
++----------------------+-------+----------+---------------------------+
+; Port                 ; Type  ; Severity ; Details                   ;
++----------------------+-------+----------+---------------------------+
+; fatordivisao[22..18] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[14..11] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[10..7]  ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[5..0]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[24]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[23]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[17]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[16]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[15]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[6]      ; Input ; Info     ; Stuck at VCC              ;
++----------------------+-------+----------+---------------------------+
+
+
++---------------------------------------------------------------------+
+; Port Connectivity Checks: "divisorCompleto:freqDivider|divisorN:c1" ;
++----------------------+-------+----------+---------------------------+
+; Port                 ; Type  ; Severity ; Details                   ;
++----------------------+-------+----------+---------------------------+
+; fatordivisao[23..19] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[15..12] ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[11..8]  ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[6..0]   ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[25]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[24]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[18]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[17]     ; Input ; Info     ; Stuck at VCC              ;
+; fatordivisao[16]     ; Input ; Info     ; Stuck at GND              ;
+; fatordivisao[7]      ; Input ; Info     ; Stuck at VCC              ;
++----------------------+-------+----------+---------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "display_selector:displaySelector"                                                      ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; Port    ; Type   ; Severity ; Details                                                                             ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+; enable7 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable6 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable5 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable4 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; enable0 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec7" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec6" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec5" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec4" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec3" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec2" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec1" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------+
+; Port Connectivity Checks: "decoder:dec0" ;
++--------+-------+----------+--------------+
+; Port   ; Type  ; Severity ; Details      ;
++--------+-------+----------+--------------+
+; enable ; Input ; Info     ; Stuck at VCC ;
++--------+-------+----------+--------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "pseudo_random_generator:random" ;
++--------+-------+----------+--------------------------------+
+; Port   ; Type  ; Severity ; Details                        ;
++--------+-------+----------+--------------------------------+
+; enable ; Input ; Info     ; Stuck at VCC                   ;
++--------+-------+----------+--------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 105                         ;
+; cycloneiii_ff         ; 903                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 179                         ;
+;     ENA SCLR          ; 8                           ;
+;     ENA SLD           ; 24                          ;
+;     SCLR              ; 74                          ;
+;     SLD               ; 18                          ;
+;     plain             ; 596                         ;
+; cycloneiii_lcell_comb ; 1329                        ;
+;     arith             ; 246                         ;
+;         2 data inputs ; 235                         ;
+;         3 data inputs ; 11                          ;
+;     normal            ; 1083                        ;
+;         0 data inputs ; 3                           ;
+;         1 data inputs ; 36                          ;
+;         2 data inputs ; 120                         ;
+;         3 data inputs ; 160                         ;
+;         4 data inputs ; 764                         ;
+;                       ;                             ;
+; Max LUT depth         ; 7.00                        ;
+; Average LUT depth     ; 2.37                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Wed Jun 16 15:42:07 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GuessTheNumber -c GuessTheNumber
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file divisorn.vhd
+    Info (12022): Found design unit 1: divisorN-Behavioral File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorN.vhd Line: 12
+    Info (12023): Found entity 1: divisorN File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorN.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file divisorcompleto.vhd
+    Info (12022): Found design unit 1: divisorCompleto-Behavioral File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 13
+    Info (12023): Found entity 1: divisorCompleto File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file bin_to_bcd_fsm.vhd
+    Info (12022): Found design unit 1: bin_to_bcd_fsm-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/bin_to_bcd_fsm.vhd Line: 15
+    Info (12023): Found entity 1: bin_to_bcd_fsm File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/bin_to_bcd_fsm.vhd Line: 5
+Info (12021): Found 3 design units, including 1 entities, in source file pseudo_random_generator.vhd
+    Info (12022): Found design unit 1: pseudo_random_generator-heavy File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/pseudo_random_generator.vhd Line: 40
+    Info (12022): Found design unit 2: pseudo_random_generator-light File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/pseudo_random_generator.vhd Line: 1304
+    Info (12023): Found entity 1: pseudo_random_generator File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/pseudo_random_generator.vhd Line: 23
+Info (12021): Found 2 design units, including 1 entities, in source file guess_number.vhd
+    Info (12022): Found design unit 1: guess_number-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd Line: 28
+    Info (12023): Found entity 1: guess_number File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file counter.vhd
+    Info (12022): Found design unit 1: counter-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/counter.vhd Line: 13
+    Info (12023): Found entity 1: counter File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/counter.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file seqshiftunit.vhd
+    Info (12022): Found design unit 1: SeqShiftUnit-Behavioral File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/SeqShiftUnit.vhd Line: 12
+    Info (12023): Found entity 1: SeqShiftUnit File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/SeqShiftUnit.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file display_selector.vhd
+    Info (12022): Found design unit 1: display_selector-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 31
+    Info (12023): Found entity 1: display_selector File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file toplevel.vhd
+    Info (12022): Found design unit 1: topLevel-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 21
+    Info (12023): Found entity 1: topLevel File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file decoder.vhd
+    Info (12022): Found design unit 1: decoder-RTL File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/decoder.vhd Line: 10
+    Info (12023): Found entity 1: decoder File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/decoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file debounceunit.vhd
+    Info (12022): Found design unit 1: DebounceUnit-Behavioral File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/DebounceUnit.vhd Line: 15
+    Info (12023): Found entity 1: DebounceUnit File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/DebounceUnit.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file blinker.vhd
+    Info (12022): Found design unit 1: blinker-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/blinker.vhd Line: 11
+    Info (12023): Found entity 1: blinker File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/blinker.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file toplevel2.vhd
+    Info (12022): Found design unit 1: topLevel2-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel2.vhd Line: 21
+    Info (12023): Found entity 1: topLevel2 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file toplevel3.vhd
+    Info (12022): Found design unit 1: topLevel3-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel3.vhd Line: 21
+    Info (12023): Found entity 1: topLevel3 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel3.vhd Line: 4
+Info (12127): Elaborating entity "topLevel" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab0" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab1" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab2" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab3" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab4" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab5" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab6" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab7" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
+Warning (10873): Using initial value X (don't care) for net "ledg[7..3]" at topLevel.vhd(18) File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+Info (12129): Elaborating entity "pseudo_random_generator" using architecture "A:heavy" for hierarchy "pseudo_random_generator:random" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 38
+Info (12129): Elaborating entity "DebounceUnit" using architecture "A:behavioral" for hierarchy "DebounceUnit:debounce0" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 45
+Info (12129): Elaborating entity "decoder" using architecture "A:rtl" for hierarchy "decoder:dec0" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 81
+Info (12129): Elaborating entity "display_selector" using architecture "A:v1" for hierarchy "display_selector:displaySelector" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 114
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(14): used implicit default value for signal "enable7" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 14
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(16): used implicit default value for signal "enable6" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 16
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(18): used implicit default value for signal "enable5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 18
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(20): used implicit default value for signal "enable4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 20
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(22): used implicit default value for signal "enable3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 22
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(24): used implicit default value for signal "enable2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 24
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(26): used implicit default value for signal "enable1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 26
+Warning (10541): VHDL Signal Declaration warning at display_selector.vhd(28): used implicit default value for signal "enable0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/display_selector.vhd Line: 28
+Info (12129): Elaborating entity "bin_to_bcd_fsm" using architecture "A:v1" for hierarchy "bin_to_bcd_fsm:conversor1" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 140
+Info (12129): Elaborating entity "divisorCompleto" using architecture "A:behavioral" for hierarchy "divisorCompleto:freqDivider" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 155
+Info (12129): Elaborating entity "divisorN" using architecture "A:behavioral" for hierarchy "divisorCompleto:freqDivider|divisorN:c1" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 16
+Info (12129): Elaborating entity "divisorN" using architecture "A:behavioral" for hierarchy "divisorCompleto:freqDivider|divisorN:c2" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 22
+Info (12129): Elaborating entity "divisorN" using architecture "A:behavioral" for hierarchy "divisorCompleto:freqDivider|divisorN:c4" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 28
+Info (12129): Elaborating entity "divisorN" using architecture "A:behavioral" for hierarchy "divisorCompleto:freqDivider|divisorN:c8" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/divisorCompleto.vhd Line: 34
+Info (12129): Elaborating entity "guess_number" using architecture "A:v1" for hierarchy "guess_number:guessGame" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 162
+Info (12129): Elaborating entity "counter" using architecture "A:v1" for hierarchy "guess_number:guessGame|counter:count" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd Line: 43
+Info (12129): Elaborating entity "SeqShiftUnit" using architecture "A:behavioral" for hierarchy "guess_number:guessGame|SeqShiftUnit:rotator" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd Line: 50
+Info (12129): Elaborating entity "blinker" using architecture "A:v1" for hierarchy "guess_number:guessGame|blinker:blinker" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/guess_number.vhd Line: 57
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "ledg[1]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[2]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[3]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[4]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[5]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[6]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+    Warning (13410): Pin "ledg[7]" is stuck at GND File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 18
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[1]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[2]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[3]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
+Info (21057): Implemented 1465 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 23 input pins
+    Info (21059): Implemented 82 output pins
+    Info (21061): Implemented 1360 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
+    Info: Peak virtual memory: 4794 megabytes
+    Info: Processing ended: Wed Jun 16 15:42:39 2021
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:01:04
+
+

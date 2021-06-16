@@ -16,13 +16,13 @@ entity guess_number is
 			done1 :    in std_logic;
 			done2 :    in std_logic;
 			c1hz :     in std_logic;
-			
+			c8hz :     in std_logic
 			rnd :      in std_logic_vector(17 downto 0);
 			
 			--clocks sem uso
 			c2hz :     in std_logic;
 			c4hz :     in std_logic;
-			c8hz :     in std_logic);
+			);
 end guess_number;
 
 architecture v1 of guess_number is
