@@ -26,7 +26,7 @@ entity guess_number is
 end guess_number;
 
 architecture v1 of guess_number is
-	type state is (guess_n1, grupo_xx, jogo, terminar, conversao1, waiting);
+	type state is (guess_n1, grupo_xx, jogo, terminar, conversao1, waiting, cheater);
 	signal estado : state;
 	signal s_resetCounter, s_move : std_logic;
 	signal s_atCount : unsigned(6 downto 0);
@@ -37,7 +37,7 @@ architecture v1 of guess_number is
 	signal s_done1, s_done2 : std_logic;
 	signal s_loadRotate : std_logic;
 	signal s_blink, s_blinkDisplay : std_logic;
-	signal s_enable, s_enable2 : std_logic_vector(2 downto 0);
+	signal s_enable, s_enable2, s_enable3 : std_logic_vector(2 downto 0);
 begin
 
 	count: entity work.counter(v1)
@@ -63,6 +63,11 @@ begin
 		port map(clk => c1hz,
 					enableIn => s_blinkDisplay,
 					enableOut => s_enable2);
+	
+	blinker3: entity work.blinker(v1)
+		port map(clk => c4hz,
+					enableIn => s_blinkDisplay,
+					enableOut => s_enable3);
 
 	sync_proc: process(clk, estado)
 	begin
@@ -133,8 +138,12 @@ begin
 		
 		when conversao1 =>
 			enable <= "000";
-			if(s_done1 ='1' and s_done2 ='1' ) then
-				estado <= jogo;
+			if (s_lo > s_hi or s_hi = "11111111") then
+					estado <= cheater;
+			else
+				if(s_done1 ='1' and s_done2 ='1' ) then
+					estado <= jogo;
+				end if;
 			end if;
 		
 		when jogo =>
@@ -169,6 +178,8 @@ begin
 					estado <= waiting;
 				end if;
 				
+				
+				
 			end if;
 			
 		when terminar =>
@@ -181,6 +192,17 @@ begin
 			else
 				ledr <= rnd;
 			end if;
+		
+		when cheater =>
+			selector <= '1';
+			s_blinkDisplay <= '1';
+			enable <= s_enable3;
+			texto <= "11000"&"01011"&"01111"&"01100"&"01010"&"10110"&"01100"&"10100";
+			if (keys(3) = '1') then
+				estado <= grupo_xx;
+				s_blinkDisplay <= '0';
+			end if;
+			
 		end case;
 		end if;
 	end process;

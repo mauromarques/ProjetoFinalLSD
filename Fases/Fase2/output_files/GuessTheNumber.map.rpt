@@ -1,5 +1,5 @@
 Analysis & Synthesis report for GuessTheNumber
-Wed Jun 16 15:42:39 2021
+Thu Jun 17 09:42:40 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -73,15 +73,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 16 15:42:38 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 17 09:42:40 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; GuessTheNumber                              ;
 ; Top-level Entity Name              ; topLevel                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,357                                       ;
-;     Total combinational functions  ; 1,320                                       ;
-;     Dedicated logic registers      ; 903                                         ;
-; Total registers                    ; 903                                         ;
+; Total logic elements               ; 1,405                                       ;
+;     Total combinational functions  ; 1,368                                       ;
+;     Dedicated logic registers      ; 930                                         ;
+; Total registers                    ; 930                                         ;
 ; Total pins                         ; 105                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -220,20 +220,20 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------------------------+
 ; Resource                                    ; Usage                                          ;
 +---------------------------------------------+------------------------------------------------+
-; Estimated Total logic elements              ; 1,357                                          ;
+; Estimated Total logic elements              ; 1,405                                          ;
 ;                                             ;                                                ;
-; Total combinational functions               ; 1320                                           ;
+; Total combinational functions               ; 1368                                           ;
 ; Logic element usage by number of LUT inputs ;                                                ;
-;     -- 4 input functions                    ; 764                                            ;
-;     -- 3 input functions                    ; 171                                            ;
-;     -- <=2 input functions                  ; 385                                            ;
+;     -- 4 input functions                    ; 780                                            ;
+;     -- 3 input functions                    ; 180                                            ;
+;     -- <=2 input functions                  ; 408                                            ;
 ;                                             ;                                                ;
 ; Logic elements by mode                      ;                                                ;
-;     -- normal mode                          ; 1074                                           ;
-;     -- arithmetic mode                      ; 246                                            ;
+;     -- normal mode                          ; 1092                                           ;
+;     -- arithmetic mode                      ; 276                                            ;
 ;                                             ;                                                ;
-; Total registers                             ; 903                                            ;
-;     -- Dedicated logic registers            ; 903                                            ;
+; Total registers                             ; 930                                            ;
+;     -- Dedicated logic registers            ; 930                                            ;
 ;     -- I/O registers                        ; 0                                              ;
 ;                                             ;                                                ;
 ; I/O pins                                    ; 105                                            ;
@@ -242,8 +242,8 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                ;
 ; Maximum fan-out node                        ; divisorCompleto:freqDivider|divisorN:c8|clkOut ;
 ; Maximum fan-out                             ; 468                                            ;
-; Total fan-out                               ; 6661                                           ;
-; Average fan-out                             ; 2.74                                           ;
+; Total fan-out                               ; 6886                                           ;
+; Average fan-out                             ; 2.75                                           ;
 +---------------------------------------------+------------------------------------------------+
 
 
@@ -252,7 +252,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name             ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
-; |topLevel                             ; 1320 (0)            ; 903 (0)                   ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |topLevel                                             ; topLevel                ; work         ;
+; |topLevel                             ; 1368 (1)            ; 930 (0)                   ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |topLevel                                             ; topLevel                ; work         ;
 ;    |DebounceUnit:debounce0|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce0                      ; DebounceUnit            ; work         ;
 ;    |DebounceUnit:debounce1|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce1                      ; DebounceUnit            ; work         ;
 ;    |DebounceUnit:debounce2|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce2                      ; DebounceUnit            ; work         ;
@@ -268,13 +268,15 @@ refer to the applicable agreement for further details.
 ;    |decoder:dec6|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec6                                ; decoder                 ; work         ;
 ;    |decoder:dec7|                     ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|decoder:dec7                                ; decoder                 ; work         ;
 ;    |display_selector:displaySelector| ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|display_selector:displaySelector            ; display_selector        ; work         ;
-;    |divisorCompleto:freqDivider|      ; 117 (0)             ; 77 (0)                    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider                 ; divisorCompleto         ; work         ;
+;    |divisorCompleto:freqDivider|      ; 155 (0)             ; 102 (0)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider                 ; divisorCompleto         ; work         ;
 ;       |divisorN:c1|                   ; 41 (41)             ; 27 (27)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c1     ; divisorN                ; work         ;
 ;       |divisorN:c2|                   ; 39 (39)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c2     ; divisorN                ; work         ;
+;       |divisorN:c4|                   ; 38 (38)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c4     ; divisorN                ; work         ;
 ;       |divisorN:c8|                   ; 37 (37)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c8     ; divisorN                ; work         ;
-;    |guess_number:guessGame|           ; 232 (184)           ; 169 (121)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame                      ; guess_number            ; work         ;
+;    |guess_number:guessGame|           ; 241 (192)           ; 171 (122)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame                      ; guess_number            ; work         ;
 ;       |SeqShiftUnit:rotator|          ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|SeqShiftUnit:rotator ; SeqShiftUnit            ; work         ;
 ;       |blinker:blinker2|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker2     ; blinker                 ; work         ;
+;       |blinker:blinker3|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker3     ; blinker                 ; work         ;
 ;       |blinker:blinker|               ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker      ; blinker                 ; work         ;
 ;       |counter:count|                 ; 6 (6)               ; 6 (6)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|counter:count        ; counter                 ; work         ;
 ;    |pseudo_random_generator:random|   ; 481 (481)           ; 467 (467)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|pseudo_random_generator:random              ; pseudo_random_generator ; work         ;
@@ -283,18 +285,19 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |topLevel|guess_number:guessGame|estado                                                                    ;
-+-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
-; Name              ; estado.waiting ; estado.conversao1 ; estado.terminar ; estado.jogo ; estado.grupo_xx ; estado.guess_n1 ;
-+-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
-; estado.guess_n1   ; 0              ; 0                 ; 0               ; 0           ; 0               ; 0               ;
-; estado.grupo_xx   ; 0              ; 0                 ; 0               ; 0           ; 1               ; 1               ;
-; estado.jogo       ; 0              ; 0                 ; 0               ; 1           ; 0               ; 1               ;
-; estado.terminar   ; 0              ; 0                 ; 1               ; 0           ; 0               ; 1               ;
-; estado.conversao1 ; 0              ; 1                 ; 0               ; 0           ; 0               ; 1               ;
-; estado.waiting    ; 1              ; 0                 ; 0               ; 0           ; 0               ; 1               ;
-+-------------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |topLevel|guess_number:guessGame|estado                                                                                     ;
++-------------------+----------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
+; Name              ; estado.cheater ; estado.waiting ; estado.conversao1 ; estado.terminar ; estado.jogo ; estado.grupo_xx ; estado.guess_n1 ;
++-------------------+----------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
+; estado.guess_n1   ; 0              ; 0              ; 0                 ; 0               ; 0           ; 0               ; 0               ;
+; estado.grupo_xx   ; 0              ; 0              ; 0                 ; 0               ; 0           ; 1               ; 1               ;
+; estado.jogo       ; 0              ; 0              ; 0                 ; 0               ; 1           ; 0               ; 1               ;
+; estado.terminar   ; 0              ; 0              ; 0                 ; 1               ; 0           ; 0               ; 1               ;
+; estado.conversao1 ; 0              ; 0              ; 1                 ; 0               ; 0           ; 0               ; 1               ;
+; estado.waiting    ; 0              ; 1              ; 0                 ; 0               ; 0           ; 0               ; 1               ;
+; estado.cheater    ; 1              ; 0              ; 0                 ; 0               ; 0           ; 0               ; 1               ;
++-------------------+----------------+----------------+-------------------+-----------------+-------------+-----------------+-----------------+
 
 
 Encoding Type:  One-Hot
@@ -326,12 +329,12 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+-----------------------------------------------------------------+
 ; Register name                                       ; Reason for Removal                                              ;
 +-----------------------------------------------------+-----------------------------------------------------------------+
-; guess_number:guessGame|s_InTextRotate[3..7]         ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[3..9]         ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[2]            ; Stuck at VCC due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[1]            ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[0]            ; Stuck at VCC due to stuck port data_in                          ;
 ; guess_number:guessGame|s_mid[7]                     ; Stuck at GND due to stuck port data_in                          ;
-; guess_number:guessGame|s_InTextRotate[8..12]        ; Stuck at GND due to stuck port data_in                          ;
+; guess_number:guessGame|s_InTextRotate[10..12]       ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[13,14]        ; Stuck at VCC due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[15..19]       ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|s_InTextRotate[20,21]        ; Stuck at VCC due to stuck port data_in                          ;
@@ -355,12 +358,14 @@ Encoding Type:  One-Hot
 ; guess_number:guessGame|counter:count|s_ledr[1..17]  ; Merged with guess_number:guessGame|counter:count|s_ledr[0]      ;
 ; guess_number:guessGame|enable[2]                    ; Merged with guess_number:guessGame|enable[1]                    ;
 ; guess_number:guessGame|blinker:blinker|s_enable[2]  ; Merged with guess_number:guessGame|blinker:blinker|s_enable[1]  ;
+; guess_number:guessGame|blinker:blinker3|s_enable[2] ; Merged with guess_number:guessGame|blinker:blinker3|s_enable[1] ;
+; guess_number:guessGame|blinker:blinker3|s_enable[1] ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|blinker:blinker2|s_enable[1] ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|blinker:blinker|s_enable[1]  ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|enable[1]                    ; Stuck at GND due to stuck port data_in                          ;
 ; guess_number:guessGame|s_resposta[10]               ; Stuck at VCC due to stuck port data_in                          ;
 ; guess_number:guessGame|s_resposta[0]                ; Stuck at GND due to stuck port data_in                          ;
-; Total Number of Removed Registers = 80              ;                                                                 ;
+; Total Number of Removed Registers = 82              ;                                                                 ;
 +-----------------------------------------------------+-----------------------------------------------------------------+
 
 
@@ -369,7 +374,7 @@ Encoding Type:  One-Hot
 +-----------------------------------------------------+---------------------------+----------------------------------------+
 ; Register name                                       ; Reason for Removal        ; Registers Removed due to This Register ;
 +-----------------------------------------------------+---------------------------+----------------------------------------+
-; guess_number:guessGame|blinker:blinker2|s_enable[1] ; Stuck at GND              ; guess_number:guessGame|enable[1]       ;
+; guess_number:guessGame|blinker:blinker3|s_enable[1] ; Stuck at GND              ; guess_number:guessGame|enable[1]       ;
 ;                                                     ; due to stuck port data_in ;                                        ;
 +-----------------------------------------------------+---------------------------+----------------------------------------+
 
@@ -379,12 +384,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 903   ;
-; Number of registers using Synchronous Clear  ; 82    ;
-; Number of registers using Synchronous Load   ; 42    ;
+; Total registers                              ; 930   ;
+; Number of registers using Synchronous Clear  ; 106   ;
+; Number of registers using Synchronous Load   ; 49    ;
 ; Number of registers using Asynchronous Clear ; 4     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 211   ;
+; Number of registers using Clock Enable       ; 216   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -470,27 +475,30 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                               ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
-; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |topLevel|display_selector:displaySelector|bin2[1]       ;
+; 3:1                ; 20 bits   ; 40 LEs        ; 20 LEs               ; 20 LEs                 ; Yes        ; |topLevel|display_selector:displaySelector|bin1[4]       ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin4[3]       ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin7[4]       ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin6[4]       ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin4[4]       ;
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin7[0]       ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[37]               ;
-; 4:1                ; 20 bits   ; 40 LEs        ; 40 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[16]               ;
-; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|ledr[3]                 ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|s_hi[0]                 ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce0|s_debounceCnt[7]        ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce1|s_debounceCnt[11]       ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce2|s_debounceCnt[14]       ;
-; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce3|s_debounceCnt[6]        ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_dezenasUNSIGNED[1] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_inputUNSIGNED[5]   ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_dezenasUNSIGNED[0] ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_inputUNSIGNED[1]   ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |topLevel|display_selector:displaySelector|bin6[3]       ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[31]               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[10]               ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[39]               ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|ledr[0]                 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|s_hi[6]                 ;
+; 4:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|texto[32]               ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce0|s_debounceCnt[17]       ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce1|s_debounceCnt[6]        ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce2|s_debounceCnt[19]       ;
+; 5:1                ; 23 bits   ; 69 LEs        ; 46 LEs               ; 23 LEs                 ; Yes        ; |topLevel|DebounceUnit:debounce3|s_debounceCnt[21]       ;
+; 5:1                ; 15 bits   ; 45 LEs        ; 30 LEs               ; 15 LEs                 ; Yes        ; |topLevel|guess_number:guessGame|texto[11]               ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_dezenasUNSIGNED[3] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor2|s_inputUNSIGNED[6]   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_dezenasUNSIGNED[2] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; Yes        ; |topLevel|bin_to_bcd_fsm:conversor1|s_inputUNSIGNED[6]   ;
 ; 7:1                ; 3 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |topLevel|guess_number:guessGame|s_resposta[10]          ;
 ; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; No         ; |topLevel|guess_number:guessGame|s_resposta              ;
-; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |topLevel|guess_number:guessGame|Selector110             ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |topLevel|guess_number:guessGame|Selector111             ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; No         ; |topLevel|guess_number:guessGame|Selector107             ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |topLevel|guess_number:guessGame|Selector109             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------+
 
 
@@ -781,27 +789,28 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 105                         ;
-; cycloneiii_ff         ; 903                         ;
+; cycloneiii_ff         ; 930                         ;
 ;     CLR               ; 4                           ;
-;     ENA               ; 179                         ;
-;     ENA SCLR          ; 8                           ;
+;     ENA               ; 184                         ;
+;     ENA SCLR          ; 1                           ;
+;     ENA SCLR SLD      ; 7                           ;
 ;     ENA SLD           ; 24                          ;
-;     SCLR              ; 74                          ;
+;     SCLR              ; 98                          ;
 ;     SLD               ; 18                          ;
-;     plain             ; 596                         ;
-; cycloneiii_lcell_comb ; 1329                        ;
-;     arith             ; 246                         ;
-;         2 data inputs ; 235                         ;
-;         3 data inputs ; 11                          ;
-;     normal            ; 1083                        ;
+;     plain             ; 594                         ;
+; cycloneiii_lcell_comb ; 1376                        ;
+;     arith             ; 276                         ;
+;         2 data inputs ; 258                         ;
+;         3 data inputs ; 18                          ;
+;     normal            ; 1100                        ;
 ;         0 data inputs ; 3                           ;
-;         1 data inputs ; 36                          ;
-;         2 data inputs ; 120                         ;
-;         3 data inputs ; 160                         ;
-;         4 data inputs ; 764                         ;
+;         1 data inputs ; 37                          ;
+;         2 data inputs ; 118                         ;
+;         3 data inputs ; 162                         ;
+;         4 data inputs ; 780                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 2.37                        ;
+; Average LUT depth     ; 2.45                        ;
 +-----------------------+-----------------------------+
 
 
@@ -820,7 +829,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Jun 16 15:42:07 2021
+    Info: Processing started: Thu Jun 17 09:42:09 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GuessTheNumber -c GuessTheNumber
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -861,12 +870,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file debounc
 Info (12021): Found 2 design units, including 1 entities, in source file blinker.vhd
     Info (12022): Found design unit 1: blinker-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/blinker.vhd Line: 11
     Info (12023): Found entity 1: blinker File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/blinker.vhd Line: 5
-Info (12021): Found 2 design units, including 1 entities, in source file toplevel2.vhd
-    Info (12022): Found design unit 1: topLevel2-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel2.vhd Line: 21
-    Info (12023): Found entity 1: topLevel2 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel2.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file toplevel3.vhd
-    Info (12022): Found design unit 1: topLevel3-v1 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel3.vhd Line: 21
-    Info (12023): Found entity 1: topLevel3 File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel3.vhd Line: 4
 Info (12127): Elaborating entity "topLevel" for the top level hierarchy
 Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab0" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
 Warning (10036): Verilog HDL or VHDL warning at topLevel.vhd(29): object "enab1" assigned a value but never read File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 29
@@ -928,14 +931,14 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
     Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
     Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
-Info (21057): Implemented 1465 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1513 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 82 output pins
-    Info (21061): Implemented 1360 logic cells
+    Info (21061): Implemented 1408 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
-    Info: Peak virtual memory: 4794 megabytes
-    Info: Processing ended: Wed Jun 16 15:42:39 2021
-    Info: Elapsed time: 00:00:32
-    Info: Total CPU time (on all processors): 00:01:04
+    Info: Peak virtual memory: 4796 megabytes
+    Info: Processing ended: Thu Jun 17 09:42:40 2021
+    Info: Elapsed time: 00:00:31
+    Info: Total CPU time (on all processors): 00:00:58
 
 

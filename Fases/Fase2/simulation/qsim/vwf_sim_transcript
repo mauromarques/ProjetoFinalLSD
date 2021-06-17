@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off GuessTheNumber -c GuessTheNumber --vector_source="C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform1.vwf" --testbench_file="C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/Waveform1.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off GuessTheNumber -c GuessTheNumber --vector_source="C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform.vwf" --testbench_file="C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/Waveform.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -25,12 +25,17 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Tue Jun 15 19:32:58 2021
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off GuessTheNumber -c GuessTheNumber --vector_source=C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform1.vwf --testbench_file=C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/Waveform1.vwf.vht
+    Info: Processing started: Thu Jun 17 09:24:41 2021
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off GuessTheNumber -c GuessTheNumber --vector_source=C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform.vwf --testbench_file=C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/Waveform.vwf.vht
 Info (119006): Selected device EP4CE115F29C7 for design "GuessTheNumber"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
-in "ledg" in vector source file when writing test bench files
+1002): Generated VHDL Test Bench File C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/Waveform.vwf.vht for simulation
+Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 105 warnings
+    Info: Peak virtual memory: 4637 megabytes
+    Info: Processing ended: Thu Jun 17 09:24:43 2021
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 Completed successfully. 
 
@@ -54,16 +59,16 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Tue Jun 15 19:33:01 2021
+    Info: Processing started: Thu Jun 17 09:24:44 2021
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/ GuessTheNumber -c GuessTheNumber
 Info (119006): Selected device EP4CE115F29C7 for design "GuessTheNumber"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file GuessTheNumber.vho in folder "C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4648 megabytes
-    Info: Processing ended: Tue Jun 15 19:33:04 2021
-    Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Peak virtual memory: 4643 megabytes
+    Info: Processing ended: Thu Jun 17 09:24:46 2021
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:02
 
 Completed successfully. 
 
@@ -87,10 +92,9 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 # ** Warning: (vlib-34) Library already exists at "work".
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:33:06 on Jun 15,2021
+# Start time: 09:24:48 on Jun 17,2021
 # vcom -work work GuessTheNumber.vho 
 # -- Loading package STANDARD
-
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Loading package VITAL_Timing
@@ -99,77 +103,63 @@ Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 # -- Loading package altera_primitives_components
 # -- Loading package cycloneive_atom_pack
 # -- Loading package cycloneive_components
-# -- Compiling entity topLevel
-# -- Compiling architecture structure of topLevel
+# -- Compiling entity guess_number
 
-# End time: 19:33:07 on Jun 15,2021, Elapsed time: 0:00:01
+# -- Compiling architecture structure of guess_number
+
+# End time: 09:24:48 on Jun 17,2021, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:33:07 on Jun 15,2021
-# vcom -work work Waveform1.vwf.vht 
+# Start time: 09:24:48 on Jun 17,2021
+# vcom -work work Waveform.vwf.vht 
 # -- Loading package STANDARD
 
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity topLevel_vhd_vec_tst
-# -- Compiling architecture topLevel_arch of topLevel_vhd_vec_tst
+# -- Compiling entity guess_number_vhd_vec_tst
+# -- Compiling architecture guess_number_arch of guess_number_vhd_vec_tst
 
-# End time: 19:33:07 on Jun 15,2021, Elapsed time: 0:00:00
+# End time: 09:24:49 on Jun 17,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.topLevel_vhd_vec_tst 
-# Start time: 19:33:07 on Jun 15,2021
+# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.guess_number_vhd_vec_tst 
+# Start time: 09:24:49 on Jun 17,2021
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.toplevel_vhd_vec_tst(toplevel_arch)
+# Loading work.guess_number_vhd_vec_tst(guess_number_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
 # Loading altera.altera_primitives_components
 # Loading cycloneive.cycloneive_atom_pack(body)
 # Loading cycloneive.cycloneive_components
-# Loading work.toplevel(structure)
+# Loading work.guess_number(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneive.cycloneive_io_obuf(arch)
 # Loading cycloneive.cycloneive_io_ibuf(arch)
 # Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
 # Loading altera.dffeas(vital_dffeas)
-# ** Warning: Design size of 286829 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 62504 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
+
 # after#33
 
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# Simulation time: 19000 ps
-
-# End time: 19:33:31 on Jun 15,2021, Elapsed time: 0:00:24
+# End time: 09:24:50 on Jun 17,2021, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 1
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform1.vwf...
+Reading C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/Waveform.vwf...
 
 Reading C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/GuessTheNumber.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/GuessTheNumber_20210615193332.sim.vwf
+Writing the resulting VWF to C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/simulation/qsim/GuessTheNumber_20210617092450.sim.vwf
 
 Finished VCD to VWF conversion.
 

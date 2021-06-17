@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "06/15/2021 18:17:54"
+-- Generated on "06/17/2021 09:24:43"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          guess_number
 -- 
@@ -43,9 +43,11 @@ SIGNAL clk : STD_LOGIC;
 SIGNAL done1 : STD_LOGIC;
 SIGNAL done2 : STD_LOGIC;
 SIGNAL enable : STD_LOGIC_VECTOR(2 DOWNTO 0);
+SIGNAL hi : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL keys : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL ledg : STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL ledr : STD_LOGIC_VECTOR(17 DOWNTO 0);
+SIGNAL lo : STD_LOGIC_VECTOR(7 DOWNTO 0);
 SIGNAL n_attempts : STD_LOGIC_VECTOR(6 DOWNTO 0);
 SIGNAL reset : STD_LOGIC;
 SIGNAL rnd : STD_LOGIC_VECTOR(17 DOWNTO 0);
@@ -53,8 +55,8 @@ SIGNAL selector : STD_LOGIC;
 SIGNAL texto : STD_LOGIC_VECTOR(39 DOWNTO 0);
 COMPONENT guess_number
 	PORT (
-	activate : BUFFER STD_LOGIC;
-	attempt : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	activate : OUT STD_LOGIC;
+	attempt : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 	c1hz : IN STD_LOGIC;
 	c2hz : IN STD_LOGIC;
 	c4hz : IN STD_LOGIC;
@@ -62,15 +64,17 @@ COMPONENT guess_number
 	clk : IN STD_LOGIC;
 	done1 : IN STD_LOGIC;
 	done2 : IN STD_LOGIC;
-	enable : BUFFER STD_LOGIC_VECTOR(2 DOWNTO 0);
+	enable : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+	hi : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
 	keys : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-	ledg : BUFFER STD_LOGIC_VECTOR(2 DOWNTO 0);
-	ledr : BUFFER STD_LOGIC_VECTOR(17 DOWNTO 0);
-	n_attempts : BUFFER STD_LOGIC_VECTOR(6 DOWNTO 0);
+	ledg : OUT STD_LOGIC_VECTOR(2 DOWNTO 0);
+	ledr : OUT STD_LOGIC_VECTOR(17 DOWNTO 0);
+	lo : OUT STD_LOGIC_VECTOR(7 DOWNTO 0);
+	n_attempts : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
 	reset : IN STD_LOGIC;
 	rnd : IN STD_LOGIC_VECTOR(17 DOWNTO 0);
-	selector : BUFFER STD_LOGIC;
-	texto : BUFFER STD_LOGIC_VECTOR(39 DOWNTO 0)
+	selector : OUT STD_LOGIC;
+	texto : OUT STD_LOGIC_VECTOR(39 DOWNTO 0)
 	);
 END COMPONENT;
 BEGIN
@@ -87,9 +91,11 @@ BEGIN
 	done1 => done1,
 	done2 => done2,
 	enable => enable,
+	hi => hi,
 	keys => keys,
 	ledg => ledg,
 	ledr => ledr,
+	lo => lo,
 	n_attempts => n_attempts,
 	reset => reset,
 	rnd => rnd,
@@ -114,13 +120,8 @@ END PROCESS t_prcs_c1hz;
 -- c2hz
 t_prcs_c2hz: PROCESS
 BEGIN
-LOOP
 	c2hz <= '0';
-	WAIT FOR 10000 ps;
-	c2hz <= '1';
-	WAIT FOR 10000 ps;
-	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
-END LOOP;
+WAIT;
 END PROCESS t_prcs_c2hz;
 
 -- c4hz
@@ -153,7 +154,31 @@ END PROCESS t_prcs_clk;
 t_prcs_done1: PROCESS
 BEGIN
 	done1 <= '0';
-	WAIT FOR 500000 ps;
+	WAIT FOR 360000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 90000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 50000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 40000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 40000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 40000 ps;
+	done1 <= '1';
+	WAIT FOR 10000 ps;
+	done1 <= '0';
+	WAIT FOR 40000 ps;
 	done1 <= '1';
 	WAIT FOR 10000 ps;
 	done1 <= '0';
@@ -164,7 +189,31 @@ END PROCESS t_prcs_done1;
 t_prcs_done2: PROCESS
 BEGIN
 	done2 <= '0';
-	WAIT FOR 520000 ps;
+	WAIT FOR 370000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 90000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 30000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 40000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 40000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 40000 ps;
+	done2 <= '1';
+	WAIT FOR 10000 ps;
+	done2 <= '0';
+	WAIT FOR 40000 ps;
 	done2 <= '1';
 	WAIT FOR 10000 ps;
 	done2 <= '0';
@@ -180,7 +229,27 @@ END PROCESS t_prcs_keys_3;
 t_prcs_keys_2: PROCESS
 BEGIN
 	keys(2) <= '0';
-	WAIT FOR 600000 ps;
+	WAIT FOR 440000 ps;
+	keys(2) <= '1';
+	WAIT FOR 10000 ps;
+	keys(2) <= '0';
+	WAIT FOR 40000 ps;
+	keys(2) <= '1';
+	WAIT FOR 10000 ps;
+	keys(2) <= '0';
+	WAIT FOR 40000 ps;
+	keys(2) <= '1';
+	WAIT FOR 10000 ps;
+	keys(2) <= '0';
+	WAIT FOR 40000 ps;
+	keys(2) <= '1';
+	WAIT FOR 10000 ps;
+	keys(2) <= '0';
+	WAIT FOR 40000 ps;
+	keys(2) <= '1';
+	WAIT FOR 10000 ps;
+	keys(2) <= '0';
+	WAIT FOR 40000 ps;
 	keys(2) <= '1';
 	WAIT FOR 10000 ps;
 	keys(2) <= '0';
@@ -190,11 +259,7 @@ END PROCESS t_prcs_keys_2;
 t_prcs_keys_1: PROCESS
 BEGIN
 	keys(1) <= '0';
-	WAIT FOR 550000 ps;
-	keys(1) <= '1';
-	WAIT FOR 10000 ps;
-	keys(1) <= '0';
-	WAIT FOR 10000 ps;
+	WAIT FOR 390000 ps;
 	keys(1) <= '1';
 	WAIT FOR 10000 ps;
 	keys(1) <= '0';
@@ -204,7 +269,7 @@ END PROCESS t_prcs_keys_1;
 t_prcs_keys_0: PROCESS
 BEGIN
 	keys(0) <= '0';
-	WAIT FOR 450000 ps;
+	WAIT FOR 330000 ps;
 	keys(0) <= '1';
 	WAIT FOR 10000 ps;
 	keys(0) <= '0';
