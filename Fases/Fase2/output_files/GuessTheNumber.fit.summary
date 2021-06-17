@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Jun 17 09:43:21 2021
+Fitter Status : Successful - Thu Jun 17 09:56:08 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : GuessTheNumber
 Top-level Entity Name : topLevel
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 1,422 / 114,480 ( 1 % )
-    Total combinational functions : 1,368 / 114,480 ( 1 % )
+Total logic elements : 1,423 / 114,480 ( 1 % )
+    Total combinational functions : 1,369 / 114,480 ( 1 % )
     Dedicated logic registers : 930 / 114,480 ( < 1 % )
 Total registers : 930
 Total pins : 105 / 529 ( 20 % )

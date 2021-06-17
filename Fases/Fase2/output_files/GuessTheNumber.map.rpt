@@ -1,5 +1,5 @@
 Analysis & Synthesis report for GuessTheNumber
-Thu Jun 17 09:42:40 2021
+Thu Jun 17 09:55:20 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -73,13 +73,13 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 17 09:42:40 2021       ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 17 09:55:19 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; GuessTheNumber                              ;
 ; Top-level Entity Name              ; topLevel                                    ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 1,405                                       ;
-;     Total combinational functions  ; 1,368                                       ;
+; Total logic elements               ; 1,406                                       ;
+;     Total combinational functions  ; 1,369                                       ;
 ;     Dedicated logic registers      ; 930                                         ;
 ; Total registers                    ; 930                                         ;
 ; Total pins                         ; 105                                         ;
@@ -220,16 +220,16 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+------------------------------------------------+
 ; Resource                                    ; Usage                                          ;
 +---------------------------------------------+------------------------------------------------+
-; Estimated Total logic elements              ; 1,405                                          ;
+; Estimated Total logic elements              ; 1,406                                          ;
 ;                                             ;                                                ;
-; Total combinational functions               ; 1368                                           ;
+; Total combinational functions               ; 1369                                           ;
 ; Logic element usage by number of LUT inputs ;                                                ;
-;     -- 4 input functions                    ; 780                                            ;
+;     -- 4 input functions                    ; 781                                            ;
 ;     -- 3 input functions                    ; 180                                            ;
 ;     -- <=2 input functions                  ; 408                                            ;
 ;                                             ;                                                ;
 ; Logic elements by mode                      ;                                                ;
-;     -- normal mode                          ; 1092                                           ;
+;     -- normal mode                          ; 1093                                           ;
 ;     -- arithmetic mode                      ; 276                                            ;
 ;                                             ;                                                ;
 ; Total registers                             ; 930                                            ;
@@ -242,7 +242,7 @@ refer to the applicable agreement for further details.
 ;                                             ;                                                ;
 ; Maximum fan-out node                        ; divisorCompleto:freqDivider|divisorN:c8|clkOut ;
 ; Maximum fan-out                             ; 468                                            ;
-; Total fan-out                               ; 6886                                           ;
+; Total fan-out                               ; 6890                                           ;
 ; Average fan-out                             ; 2.75                                           ;
 +---------------------------------------------+------------------------------------------------+
 
@@ -252,7 +252,7 @@ refer to the applicable agreement for further details.
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
 ; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                   ; Entity Name             ; Library Name ;
 +---------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------+-------------------------+--------------+
-; |topLevel                             ; 1368 (1)            ; 930 (0)                   ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |topLevel                                             ; topLevel                ; work         ;
+; |topLevel                             ; 1369 (1)            ; 930 (0)                   ; 0           ; 0            ; 0       ; 0         ; 105  ; 0            ; |topLevel                                             ; topLevel                ; work         ;
 ;    |DebounceUnit:debounce0|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce0                      ; DebounceUnit            ; work         ;
 ;    |DebounceUnit:debounce1|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce1                      ; DebounceUnit            ; work         ;
 ;    |DebounceUnit:debounce2|           ; 68 (68)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|DebounceUnit:debounce2                      ; DebounceUnit            ; work         ;
@@ -273,7 +273,7 @@ refer to the applicable agreement for further details.
 ;       |divisorN:c2|                   ; 39 (39)             ; 26 (26)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c2     ; divisorN                ; work         ;
 ;       |divisorN:c4|                   ; 38 (38)             ; 25 (25)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c4     ; divisorN                ; work         ;
 ;       |divisorN:c8|                   ; 37 (37)             ; 24 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|divisorCompleto:freqDivider|divisorN:c8     ; divisorN                ; work         ;
-;    |guess_number:guessGame|           ; 241 (192)           ; 171 (122)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame                      ; guess_number            ; work         ;
+;    |guess_number:guessGame|           ; 242 (193)           ; 171 (122)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame                      ; guess_number            ; work         ;
 ;       |SeqShiftUnit:rotator|          ; 40 (40)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|SeqShiftUnit:rotator ; SeqShiftUnit            ; work         ;
 ;       |blinker:blinker2|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker2     ; blinker                 ; work         ;
 ;       |blinker:blinker3|              ; 1 (1)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |topLevel|guess_number:guessGame|blinker:blinker3     ; blinker                 ; work         ;
@@ -798,16 +798,16 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 98                          ;
 ;     SLD               ; 18                          ;
 ;     plain             ; 594                         ;
-; cycloneiii_lcell_comb ; 1376                        ;
+; cycloneiii_lcell_comb ; 1377                        ;
 ;     arith             ; 276                         ;
 ;         2 data inputs ; 258                         ;
 ;         3 data inputs ; 18                          ;
-;     normal            ; 1100                        ;
+;     normal            ; 1101                        ;
 ;         0 data inputs ; 3                           ;
 ;         1 data inputs ; 37                          ;
 ;         2 data inputs ; 118                         ;
 ;         3 data inputs ; 162                         ;
-;         4 data inputs ; 780                         ;
+;         4 data inputs ; 781                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 7.00                        ;
 ; Average LUT depth     ; 2.45                        ;
@@ -829,7 +829,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Thu Jun 17 09:42:09 2021
+    Info: Processing started: Thu Jun 17 09:54:48 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off GuessTheNumber -c GuessTheNumber
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -931,14 +931,14 @@ Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
     Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
     Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/mmcan/Downloads/ProjetoFinalLSD/Fases/Fase2/topLevel.vhd Line: 6
-Info (21057): Implemented 1513 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1514 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 23 input pins
     Info (21059): Implemented 82 output pins
-    Info (21061): Implemented 1408 logic cells
+    Info (21061): Implemented 1409 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 44 warnings
     Info: Peak virtual memory: 4796 megabytes
-    Info: Processing ended: Thu Jun 17 09:42:40 2021
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:58
+    Info: Processing ended: Thu Jun 17 09:55:20 2021
+    Info: Elapsed time: 00:00:32
+    Info: Total CPU time (on all processors): 00:01:00
 
 

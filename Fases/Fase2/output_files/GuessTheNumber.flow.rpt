@@ -1,5 +1,5 @@
 Flow report for GuessTheNumber
-Thu Jun 17 09:43:45 2021
+Thu Jun 17 09:56:33 2021
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -40,15 +40,15 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 17 09:43:45 2021       ;
+; Flow Status                        ; Successful - Thu Jun 17 09:56:33 2021       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; GuessTheNumber                              ;
 ; Top-level Entity Name              ; topLevel                                    ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 1,422 / 114,480 ( 1 % )                     ;
-;     Total combinational functions  ; 1,368 / 114,480 ( 1 % )                     ;
+; Total logic elements               ; 1,423 / 114,480 ( 1 % )                     ;
+;     Total combinational functions  ; 1,369 / 114,480 ( 1 % )                     ;
 ;     Dedicated logic registers      ; 930 / 114,480 ( < 1 % )                     ;
 ; Total registers                    ; 930                                         ;
 ; Total pins                         ; 105 / 529 ( 20 % )                          ;
@@ -64,7 +64,7 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/17/2021 09:42:11 ;
+; Start date & time ; 06/17/2021 09:54:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; GuessTheNumber      ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------+----------------------------------------+----------------+-------------+----------------+
 ; Assignment Name                     ; Value                                  ; Default Value  ; Entity Name ; Section Id     ;
 +-------------------------------------+----------------------------------------+----------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 198642186113305.162391933012324        ; --             ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 198642186113305.162392008908324        ; --             ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                                   ; --             ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)                 ; <None>         ; --          ; --             ;
 ; EDA_TIME_SCALE                      ; 1 ps                                   ; --             ; --          ; eda_simulation ;
@@ -95,12 +95,12 @@ refer to the applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:30     ; 1.0                     ; 4796 MB             ; 00:00:57                           ;
-; Fitter                    ; 00:00:39     ; 1.0                     ; 5784 MB             ; 00:01:01                           ;
-; Assembler                 ; 00:00:07     ; 1.0                     ; 4681 MB             ; 00:00:06                           ;
+; Analysis & Synthesis      ; 00:00:30     ; 1.0                     ; 4796 MB             ; 00:00:59                           ;
+; Fitter                    ; 00:00:47     ; 1.0                     ; 5783 MB             ; 00:01:06                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 4683 MB             ; 00:00:07                           ;
 ; TimeQuest Timing Analyzer ; 00:00:07     ; 1.1                     ; 4854 MB             ; 00:00:07                           ;
-; EDA Netlist Writer        ; 00:00:05     ; 1.0                     ; 4674 MB             ; 00:00:06                           ;
-; Total                     ; 00:01:28     ; --                      ; --                  ; 00:02:17                           ;
+; EDA Netlist Writer        ; 00:00:06     ; 1.0                     ; 4676 MB             ; 00:00:06                           ;
+; Total                     ; 00:01:36     ; --                      ; --                  ; 00:02:25                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

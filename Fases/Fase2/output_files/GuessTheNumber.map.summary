@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu Jun 17 09:42:40 2021
+Analysis & Synthesis Status : Successful - Thu Jun 17 09:55:19 2021
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : GuessTheNumber
 Top-level Entity Name : topLevel
 Family : Cyclone IV E
-Total logic elements : 1,405
-    Total combinational functions : 1,368
+Total logic elements : 1,406
+    Total combinational functions : 1,369
     Dedicated logic registers : 930
 Total registers : 930
 Total pins : 105
