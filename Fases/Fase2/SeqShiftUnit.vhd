@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
+-- shiftRegister simples que faz o shift de 5 bits por vez, pois cada letra da palavra passada aos displays tem 5 bits.
 entity SeqShiftUnit is
 	port(clk     : in std_logic;
 		  dataIn  : in std_logic_vector(39 downto 0);

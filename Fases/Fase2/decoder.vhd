@@ -1,6 +1,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
+-- decoder que transforma os binarios do input em codigos de 7-segment displays para escrevermos numeros e letras
 entity decoder is
 	port(enable		: in  std_logic;
 		 binInput	: in  std_logic_vector(4 downto 0);

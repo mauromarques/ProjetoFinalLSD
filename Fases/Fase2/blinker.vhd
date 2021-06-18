@@ -2,6 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- Blinker é um bloco criado exclusivamente para alternar os valores de enable que sao passados ao display_selector.
+-- com diferentes clocks, permitindo assim que tenhamos efeitos com frequencias diferentes para cada instancia do mesmo.
 entity blinker is
 	port(clk : in std_logic;
 		  enableIn : in std_logic;

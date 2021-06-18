@@ -1,0 +1,32 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity SeqShiftUnit_Tb is
+end SeqShiftUnit_Tb;
+
+architecture Stimulus of SeqShiftUnit_Tb is
+
+	signal s_clk    : std_logic;
+	signal s_dataIn : std_logic_vector(39 downto 0);
+	signal s_loadEn : std_logic;
+	signal s_rotate   : std_logic;
+	
+	signal s_dataOut  : std_logic_vector(39 downto 0);
+	
+begin
+	
+	uut: entity work.SeqShiftUnit(Behavioral)
+		  port map(clk     => s_clk,
+					  dataIn  => s_dataIn,
+					  loadEn  => s_loadEn,
+				     rotate  => s_rotate,
+					  dataOut => s_dataOut);
+						  
+	stim_proc : process
+	begin
+		
+		
+		
+	end process;
+end Stimulus;
+	

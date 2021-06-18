@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- divisor completo que retorna todas as frequencias necessarias para o projeto.
+-- contem 4 instancias do bloco "divisorN", uma para cada frequencia desejada: 1hz, 2hz, 4hz, 8hz
+
 entity divisorCompleto is
 	port(clk : in std_logic;
 		  c1hz : out std_logic;

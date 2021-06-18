@@ -1,0 +1,55 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity guess_number_Tb is
+end guess_number_Tb;
+
+architecture Stimulus of guess_number_Tb is
+
+	signal s_keys       : std_logic;
+	signal s_reset      : std_logic;
+	signal s_clk        : std_logic;
+	signal s_done1      : std_logic;
+	signal s_done2      : std_logic;
+	signal s_c1hz       : std_logic;
+	signal s_c2hz       : std_logic;
+	signal s_c4hz       : std_logic;
+	signal s_c8hz       : std_logic;
+	signal s_rnd   	  : std_logic_vector(17 downto 0);
+	
+	signal s_ledr       : std_logic_vector(17 downto 0);
+	signal s_n_attempts : std_logic_vector(6 downto 0);
+	signal s_activate   : std_logic;
+	signal s_attempt    : std_logic_vector(6 downto 0);
+	signal s_selector   : std_logic;
+	signal s_enable     : std_logic_vector(2 downto 0);
+	signal s_texto      : std_logic_vector(39 downto 0);
+	
+begin
+
+	utt: entity work.guess_number(v1)
+		  port map( keys       => s_keys,
+						reset      => s_reset,
+						clk        => s_clk,
+						done1      => s_done1,
+						done2      => s_done2
+						c1hz       => s_c1hz,
+						c2hz       => s_c2hz,
+						c4hz 		  => s_c4hz,
+						c8hz 		  => s_c8hz,
+						rnd        => s_rnd,
+						ledr       => s_ledr,
+						n_attempts => s_n_attempts,
+						activate   => s_activate,
+						attempt    => s_attempt,
+						selector   => s_selector,
+						enable     => s_enable,
+						texto      => s_texto);
+						
+	stim_proc : process
+	begin
+	
+	
+	end process;
+end Stimulus;

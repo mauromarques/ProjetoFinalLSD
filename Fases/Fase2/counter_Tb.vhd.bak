@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity counter_Tb is
+end counter_Tb;
+
+architecture Stimulus of counter_Tb is
+
+	signal s_reset : std_logic;
+	signal s_clk   : std_logic;
+	signal s_blink : std_logic;
+	
+	signal s_move  : std_logic;
+	signal s_ledr  : std_logic;
+	
+begin
+
+	uut: entity work.counter(v1)
+		  port map( reset => s_reset, 
+						clk   => s_clk,
+						blink => s_blink,
+						move  => s_move,
+						ledr  => s_ledr);
+						
+	stim_proc : process
+	begin
+	
+	
+	end process;
+end Stimulus;

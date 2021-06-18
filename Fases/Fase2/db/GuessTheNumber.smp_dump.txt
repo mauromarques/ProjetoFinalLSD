@@ -9,6 +9,18 @@ estado.conversao1 0 0 1 0 0 0 1
 estado.waiting 0 1 0 0 0 0 1 
 estado.cheater 1 0 0 0 0 0 1 
 
+State Machine - |topLevel|guess_number:guessGame|lcd_controller:lcd|state
+Name state.PROCESS_TXD_REQUESTS state.POWER_ON_PHASE_8 state.POWER_ON_PHASE_7 state.POWER_ON_PHASE_6 state.POWER_ON_PHASE_5 state.POWER_ON_PHASE_4 state.POWER_ON_PHASE_3 state.POWER_ON_PHASE_2 state.POWER_ON_PHASE_1 
+state.POWER_ON_PHASE_1 0 0 0 0 0 0 0 0 0 
+state.POWER_ON_PHASE_2 0 0 0 0 0 0 0 1 1 
+state.POWER_ON_PHASE_3 0 0 0 0 0 0 1 0 1 
+state.POWER_ON_PHASE_4 0 0 0 0 0 1 0 0 1 
+state.POWER_ON_PHASE_5 0 0 0 0 1 0 0 0 1 
+state.POWER_ON_PHASE_6 0 0 0 1 0 0 0 0 1 
+state.POWER_ON_PHASE_7 0 0 1 0 0 0 0 0 1 
+state.POWER_ON_PHASE_8 0 1 0 0 0 0 0 0 1 
+state.PROCESS_TXD_REQUESTS 1 0 0 0 0 0 0 0 1 
+
 State Machine - |topLevel|bin_to_bcd_fsm:conversor2|estado
 Name estado.finish estado.sub10 estado.idle 
 estado.idle 0 0 0 

@@ -2,6 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
+-- debouncer que filtra as keys utilizadas na top level para que seja sempre mandado um unico pulso '1' para cada clique.
 entity DebounceUnit is
 	generic(kHzClkFreq		: positive := 50000;
 			  mSecMinInWidth	: positive := 100;

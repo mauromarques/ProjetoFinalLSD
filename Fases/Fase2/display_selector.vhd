@@ -1,6 +1,8 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+-- display_selector responsável por dizer aos displays o que será mostrado
+-- tambem faz o efeito de piscar os displays baseado no enable de entrada
 entity display_selector is
 	port( clk      : in  std_logic;
 			d4       : in  std_logic_vector(3 downto 0);
@@ -31,7 +33,10 @@ end display_selector;
 architecture v1 of display_selector is
 
 begin
-	
+	-- nossos displays tem 4 modos de funcionamento: Todos a mostrar texto (selector = '1' and enable = "000"), Todos a mostrar texto, 
+	-- mas desligados (selector = '1' and enable = "001"), 4 displays a mostrar texto e 4 a mostrar numeros (selector = '0' and enable = "000")
+	-- e finalmente 4 displays a mostrar texto e 4 a mostrar numeros, mas com os displays mais à esquerda desligados.
+	-- Para fazer efeitos de pisca, alternamos o valor de enable que é passado ao bloco, fazendo com que displays desliguem e liguem a cada mudança
 	process(clk) is
 	begin
 	
