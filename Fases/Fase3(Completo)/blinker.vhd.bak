@@ -25,5 +25,5 @@ begin
 			end if;
 		end if;
 	end process;
-	enableOut <= s_enable;
+	enableOut <= s_enable
 end v1;

@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 
 entity topLevel is
-	port(KEY : in std_logic_vector(3 downto 0);
+	port(KEYS : in std_logic_vector(3 downto 0);
 		  SW : in std_logic_vector(17 downto 0);
 		  LEDR : out std_logic_vector(17 downto 0);
 		  CLOCK_50 : in std_logic;
@@ -13,9 +13,7 @@ entity topLevel is
 		  HEX4 : out std_logic_vector(6 downto 0);
 		  HEX5 : out std_logic_vector(6 downto 0);
 		  HEX6 : out std_logic_vector(6 downto 0);
-		  HEX7 : out std_logic_vector(6 downto 0);
-		  --debug
-		  ledg : out std_logic_vector(7 downto 0));
+		  HEX7 : out std_logic_vector(6 downto 0));
 end topLevel;
 
 architecture v1 of topLevel is
@@ -29,55 +27,8 @@ architecture v1 of topLevel is
 	signal enab0, enab1, enab2, enab3, enab4, enab5, enab6, enab7 : std_logic;
 	signal bi0, bi1, bi2, bi3, bi4, bi5, bi6, bi7 : std_logic_vector(4 downto 0);
 	signal c1, c2, c4, c8 : std_logic;
-	signal resetDebouncer : std_logic;
-	signal cleanKey : std_logic_vector(3 downto 0);
-	signal s_rnd : std_logic_vector(17 downto 0);
 	
 begin
-
-	random: entity work.pseudo_random_generator(heavy)
-		generic map(SEED => X"2021_0005_0024")
-		port map(clock  => c8,                
-					enable => '1',                  
-					rnd => s_rnd);
-    
-
-	debounce0: entity work.debounceUnit(behavioral)
-		generic map(kHzClkFreq => 50000,
-						mSecMinInWidth => 100,
-						inPolarity => '0',
-						outPolarity => '1')
-		port map(refClk => cloCK_50,
-					dirtyIn => key(0),
-					pulsedOut => cleanKey(0));
-					
-	debounce1: entity work.debounceUnit(behavioral)
-		generic map(kHzClkFreq => 50000,
-						mSecMinInWidth => 100,
-						inPolarity => '0',
-						outPolarity => '1')
-		port map(refClk => cloCK_50,
-					dirtyIn => key(1),
-					pulsedOut => cleanKey(1));
-					
-	debounce2: entity work.debounceUnit(behavioral)
-		generic map(kHzClkFreq => 50000,
-						mSecMinInWidth => 100,
-						inPolarity => '0',
-						outPolarity => '1')
-		port map(refClk => cloCK_50,
-					dirtyIn => key(2),
-					pulsedOut => cleanKey(2));
-					
-	debounce3: entity work.debounceUnit(behavioral)
-		generic map(kHzClkFreq => 50000,
-						mSecMinInWidth => 100,
-						inPolarity => '0',
-						outPolarity => '1')
-		port map(refClk => cloCK_50,
-					dirtyIn => key(3),
-					pulsedOut => cleanKey(3));
-
 	dec0: entity work.decoder(RTL)
 		 port map(enable	 => '1',
 					 binInput => bi0,
@@ -165,18 +116,21 @@ begin
 					activate => activateConversor,
 					attempt => attempt_conversorInput,
 					selector => selectorDisplay,
+					--enable sem uso, para esta fase estara sempre a 1
 					enable => en,
 					texto => textToDisplay,
-					keys => cleanKey,
+					--key(3) sem uso na fase 1
+					keys => KEYS,
 					reset => SW(0),
 					clk => clocK_50,
+					--dones sem uso na fase 1
 					done1 => don1,
 					done2 => don2,
 					c1hz => c1,
-					c8hz => c8,
-					rnd => s_rnd,
+					--rnd sem uso na fase 1
+					rnd => (others => '0'),
 					--outros clocks sem uso
 					c2hz => c2,
 					c4hz => c4,
-					ledg => ledG(2 downto 0));
+					c8hz => c8);
 end v1;

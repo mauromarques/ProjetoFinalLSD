@@ -36,48 +36,24 @@ begin
 	begin
 	
 		if rising_edge(clk) then
-			if (enable = "000") then
-				if selector = '0' then
-					bin0 <= txt(4 downto 0);
-					bin1 <= txt(9 downto 5);
-					bin2 <= txt(14 downto 10);
-					bin3 <= txt(19 downto 15);
-					bin4 <= '0'&d6;
-					bin5 <= '0'&d7;
-					bin6 <= '0'&d4;
-					bin7 <= '0'&d5;
-				else
-					bin0 <= txt(4 downto 0);
-					bin1 <= txt(9 downto 5);
-					bin2 <= txt(14 downto 10);
-					bin3 <= txt(19 downto 15);
-					bin4 <= txt(24 downto 20);
-					bin5 <= txt(29 downto 25);
-					bin6 <= txt(34 downto 30);
-					bin7 <= txt(39 downto 35);
-				end if;
-			end if;
-				
-			if (enable = "001") then
-				if selector = '0' then
-					bin0 <= txt(4 downto 0);
-					bin1 <= txt(9 downto 5);
-					bin2 <= txt(14 downto 10);
-					bin3 <= txt(19 downto 15);
-					bin4 <= '0'&d6;
-					bin5 <= '0'&d7;
-					bin6 <= "11111";
-					bin7 <= "11111";
-				else
-					bin0 <= "11111";
-					bin1 <= "11111";
-					bin2 <= "11111";
-					bin3 <= "11111";
-					bin4 <= "11111";
-					bin5 <= "11111";
-					bin6 <= "11111";
-					bin7 <= "11111";
-				end if;
+			if selector = '0' then
+				bin0 <= txt(4 downto 0);
+				bin1 <= txt(9 downto 5);
+				bin2 <= txt(14 downto 10);
+				bin3 <= txt(19 downto 15);
+				bin4 <= '0'&d7;
+				bin5 <= '0'&d6;
+				bin6 <= '0'&d5;
+				bin7 <= '0'&d4;
+			else
+				bin0 <= txt(4 downto 0);
+		      bin1 <= txt(9 downto 5);
+				bin2 <= txt(14 downto 10);
+				bin3 <= txt(19 downto 15);
+				bin4 <= txt(24 downto 20);
+				bin5 <= txt(29 downto 25);
+				bin6 <= txt(34 downto 30);
+				bin7 <= txt(39 downto 35);
 			end if;
 		end if;
 		

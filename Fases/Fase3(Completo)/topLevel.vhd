@@ -14,8 +14,15 @@ entity topLevel is
 		  HEX5 : out std_logic_vector(6 downto 0);
 		  HEX6 : out std_logic_vector(6 downto 0);
 		  HEX7 : out std_logic_vector(6 downto 0);
-		  --debug
-		  ledg : out std_logic_vector(7 downto 0));
+		  --ledg apenas para debug
+		  ledg : out std_logic_vector(7 downto 0);
+		  -- lcd
+		  lcd_on   : out   std_logic;
+		  lcd_blon : out   std_logic;
+		  lcd_rw   : out   std_logic;
+		  lcd_en   : out   std_logic;
+		  lcd_rs   : out   std_logic;
+		  lcd_data : inout std_logic_vector(7 downto 0));
 end topLevel;
 
 architecture v1 of topLevel is
@@ -34,14 +41,15 @@ architecture v1 of topLevel is
 	signal s_rnd : std_logic_vector(17 downto 0);
 	
 begin
-
+	-- bloco gerador de numeros aleatorios
+	-- utilizado para criar o efeito de pisca aleatorio nos leds vermelhos quando a maquina de estados Guess_number se encontra no estado "finish"
 	random: entity work.pseudo_random_generator(heavy)
 		generic map(SEED => X"2021_0005_0024")
 		port map(clock  => c8,                
 					enable => '1',                  
 					rnd => s_rnd);
     
-
+	-- debouncers para filtrar cada key da placa individualmente
 	debounce0: entity work.debounceUnit(behavioral)
 		generic map(kHzClkFreq => 50000,
 						mSecMinInWidth => 100,
@@ -50,7 +58,6 @@ begin
 		port map(refClk => cloCK_50,
 					dirtyIn => key(0),
 					pulsedOut => cleanKey(0));
-					
 	debounce1: entity work.debounceUnit(behavioral)
 		generic map(kHzClkFreq => 50000,
 						mSecMinInWidth => 100,
@@ -59,7 +66,6 @@ begin
 		port map(refClk => cloCK_50,
 					dirtyIn => key(1),
 					pulsedOut => cleanKey(1));
-					
 	debounce2: entity work.debounceUnit(behavioral)
 		generic map(kHzClkFreq => 50000,
 						mSecMinInWidth => 100,
@@ -67,8 +73,7 @@ begin
 						outPolarity => '1')
 		port map(refClk => cloCK_50,
 					dirtyIn => key(2),
-					pulsedOut => cleanKey(2));
-					
+					pulsedOut => cleanKey(2));	
 	debounce3: entity work.debounceUnit(behavioral)
 		generic map(kHzClkFreq => 50000,
 						mSecMinInWidth => 100,
@@ -78,6 +83,7 @@ begin
 					dirtyIn => key(3),
 					pulsedOut => cleanKey(3));
 
+	-- decoders que escrevem em cada um dos displays disponiveis na placa
 	dec0: entity work.decoder(RTL)
 		 port map(enable	 => '1',
 					 binInput => bi0,
@@ -136,7 +142,8 @@ begin
 					enable1  => enab1,
 					bin0     => bi0,
 					enable0  => enab0);
-					
+	
+	-- conversores de binario para bcd que fazem output dos digitos que deverao ser escritos nos displays a esquerda
 	conversor1: entity work.bin_to_bcd_fsm(v1)
 		port map(bin_input => n_attemptsConversorInput,
 					activate => activateConversor,
@@ -158,7 +165,8 @@ begin
 					c2hz => c2,
 					c4hz => c4,
 					c8hz => c8);
-					
+	
+	-- Maquina de estados principal com toda a logica do jogo
 	guessGame: entity work.guess_number(v1)
 		port map(ledr => LEDR,
 					n_attempts => n_attemptsConversorInput,
@@ -175,8 +183,15 @@ begin
 					c1hz => c1,
 					c8hz => c8,
 					rnd => s_rnd,
-					--outros clocks sem uso
 					c2hz => c2,
 					c4hz => c4,
-					ledg => ledG(2 downto 0));
+					--ledg apenas para debug
+					ledg => ledG(2 downto 0),
+					-- lcd
+               lcd_on   => lcd_on,
+               lcd_blon => lcd_blon,
+               lcd_rw   => lcd_rw,
+               lcd_en   => lcd_en,
+               lcd_rs   => lcd_rs,
+               lcd_data => lcd_data);
 end v1;

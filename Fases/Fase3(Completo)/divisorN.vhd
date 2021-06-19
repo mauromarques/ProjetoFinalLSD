@@ -2,6 +2,9 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
+-- divisor de frequencia simples que toma um clock inicial de entrada e devolve um clock
+-- com a frequencia desejada, baseada no valor generic N
+
 entity divisorN is
 	generic(N : positive := 32);
 	port(fatorDivisao : in std_logic_vector(N-1 downto 0);

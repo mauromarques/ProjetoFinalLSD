@@ -581,8 +581,16 @@ set_global_assignment -name VHDL_FILE topLevel.vhd
 set_global_assignment -name VHDL_FILE decoder.vhd
 set_global_assignment -name VHDL_FILE DebounceUnit.vhd
 set_global_assignment -name VHDL_FILE blinker.vhd
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
-set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform1.vwf
+set_global_assignment -name VHDL_FILE counter_Tb.vhd
+set_global_assignment -name VHDL_FILE SeqShiftUnit_Tb.vhd
+set_global_assignment -name VHDL_FILE blinker_Tb.vhd
+set_global_assignment -name VHDL_FILE decoder_Tb.vhd
+set_global_assignment -name VHDL_FILE display_selector_Tb.vhd
+set_global_assignment -name VHDL_FILE bin_to_bcd_fsm_Tb.vhd
+set_global_assignment -name VHDL_FILE guess_number_Tb.vhd
+set_global_assignment -name VHDL_FILE lcd_controller.vhd
+set_global_assignment -name VHDL_FILE lcd_controller_example_tl.vhd
+set_global_assignment -name VHDL_FILE debouncer.vhd
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top

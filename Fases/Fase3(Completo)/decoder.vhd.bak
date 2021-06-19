@@ -37,8 +37,7 @@ begin
 						  "0000111" when "10110",   --t
 						  "1000001" when "10111",   --U
 						  "1110111" when "11000",   --_
-						  "0110111" when "11001",   --=
-  						  "1111111" when others;
+						  "1111111" when others;
 				
 	decOut_n <= s_decOut_n when (enable = '1') else
 				"1111111";
